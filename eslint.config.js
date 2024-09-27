@@ -12,6 +12,11 @@ export default [
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
   {
+    settings: {
+      react: {
+        version: 'detect',
+      },
+    },
     plugins: { prettier: pluginPrettier },
     rules: {
       'prettier/prettier': 'error',
