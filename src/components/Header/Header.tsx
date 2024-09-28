@@ -1,5 +1,5 @@
 import styles from './Header.module.scss';
-import museumLogo from '../../assets/icons/museum-logo.svg';
+import museumLogo from '../../assets/icons/museum-logo-dark.svg';
 import { Link } from 'react-router-dom';
 import bookmark from '../../assets/icons/bookmark.svg';
 import home from '../../assets/icons/home.svg';
@@ -10,17 +10,17 @@ const Header = () => {
       <div className={`${styles.wrapper} wrapper`}>
         <img src={museumLogo} alt="" />
         <nav>
-          <ul>
+          <ul className={styles.list}>
             <li>
               <Link to="/home" className={styles.link}>
                 <img src={home} alt="" />
-                <span>Home</span>
+                <span className={styles.linkText}>Home</span>
               </Link>
             </li>
             <li>
               <Link to="/favorites" className={styles.link}>
                 <img src={bookmark} alt="" />
-                <span>Your Favorites</span>
+                <span className={styles.linkText}>Your Favorites</span>
               </Link>
             </li>
           </ul>

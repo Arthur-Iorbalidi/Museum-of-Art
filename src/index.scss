@@ -10,6 +10,7 @@
 html {
   font-size: 10px;
   font-family: 'Poppins';
+  color: $primaryColor;
 }
 
 .wrapper {
@@ -20,4 +21,8 @@ html {
 
 a {
   text-decoration: none;
+}
+
+ul {
+  list-style: none;
 }

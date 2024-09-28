@@ -10,16 +10,20 @@
   align-items: center;
   justify-content: space-between;
   gap: 30px;
-  ul {
-    display: flex;
-    gap: 24px;
-    list-style: none;
-    .link {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 1.6rem;
-      color: $lightColor;
-    }
-  }
+}
+
+.list {
+  display: flex;
+  gap: 24px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.linkText {
+  font-size: 1.6rem;
+  color: $lightColor;
 }

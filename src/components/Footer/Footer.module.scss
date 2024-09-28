@@ -1,0 +1,29 @@
+@import '../../constants/global.scss';
+
+.header {
+  background: linear-gradient(90deg, #343333 38.05%, #484848 69.22%, #282828 98.98%);
+}
+
+.wrapper {
+  min-height: 127px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.author {
+  font-size: 2rem;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
