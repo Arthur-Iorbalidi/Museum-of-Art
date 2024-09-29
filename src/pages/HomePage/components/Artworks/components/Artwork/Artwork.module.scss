@@ -16,15 +16,26 @@
   width: 100%;
   background-color: global.$secondaryBackgroundColor;
   border: 1px solid #F0F1F1;
-  padding: 32px 24px;
+  padding: 20px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
 .details {
   flex-grow: 1;
+}
+
+.tittle {
+  color: global.$primaryColor;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.author {
+  color: global.$secondaryColor;
+  font-size: 1.6rem;
 }
 
 .favouriteBtn {
@@ -35,4 +46,5 @@
   width: 59px;
   height: 59px;
   border-radius: 35px;
+  flex-shrink: 0;
 }

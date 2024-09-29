@@ -8,7 +8,11 @@ interface IFormFields {
   query: string;
 }
 
-const SearchForm = () => {
+interface IProps {
+  handleChangeQuery: (query: string) => void;
+}
+
+const SearchForm = ({ handleChangeQuery }: IProps) => {
   const validationSchema = getValidationSchema();
 
   const {
@@ -21,7 +25,7 @@ const SearchForm = () => {
   });
 
   const onSubmit: SubmitHandler<IFormFields> = (data: IFormFields) => {
-    console.log(data);
+    handleChangeQuery(data.query);
   };
 
   return (

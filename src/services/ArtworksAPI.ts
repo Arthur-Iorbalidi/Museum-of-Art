@@ -46,14 +46,14 @@ class ArtworksAPI {
     },
   });
 
-  async get(params: IGetParams) {
+  async get(params: IGetParams): Promise<IResponse> {
     if (params.searchQuery === '') {
       const response = await this.getArtworks(params);
-      return response.data;
+      return response;
     }
 
     const response = await this.getArtworksByQuery(params);
-    return response.data;
+    return response;
   }
 
   async getArtworks(params: IGetParams): Promise<IResponse> {
@@ -79,7 +79,6 @@ class ArtworksAPI {
       },
     });
 
-    console.log(response.data);
     return response.data;
   }
 }
