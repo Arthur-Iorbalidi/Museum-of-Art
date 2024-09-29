@@ -33,7 +33,7 @@ const SearchForm = () => {
           placeholder="Search..."
           className={styles.queryField}
         />
-        <button type="submit" className={styles.submitBtn}>
+        <button type="submit">
           <img src={searchIcon} alt="search" />
         </button>
       </div>

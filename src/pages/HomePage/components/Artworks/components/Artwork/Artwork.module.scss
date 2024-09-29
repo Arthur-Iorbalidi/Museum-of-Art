@@ -1,0 +1,38 @@
+@use '@constants/global.scss' as global;
+
+.artwork {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.artworkImg {
+  width: 100%;
+}
+
+.info {
+  margin: 0 auto;
+  width: 100%;
+  background-color: global.$secondaryBackgroundColor;
+  border: 1px solid #F0F1F1;
+  padding: 32px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.details {
+  flex-grow: 1;
+}
+
+.favouriteBtn {
+  background-color: rgb(240, 240, 240);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 59px;
+  height: 59px;
+  border-radius: 35px;
+}

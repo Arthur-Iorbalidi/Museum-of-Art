@@ -1,4 +1,4 @@
-@import '../../constants/global.scss';
+@use '@constants/global.scss' as global;
 
 .header {
   background: linear-gradient(90deg, #343333 38.05%, #484848 69.22%, #282828 98.98%);
@@ -28,5 +28,5 @@
 
 .linkText {
   font-size: 1.6rem;
-  color: $lightColor;
+  color: global.$lightColor;
 }

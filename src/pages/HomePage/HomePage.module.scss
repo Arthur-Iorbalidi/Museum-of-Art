@@ -1,4 +1,4 @@
-@import '../../constants/global.scss';
+@use '@constants/global.scss' as global;
 
 .wrapper {
   max-width: 1300px;
@@ -7,11 +7,19 @@
 }
 
 .tittle {
+  margin: 0 auto;
   max-width: 684px;
-  color: $primaryColor;
+  color: global.$primaryColor;
   text-align: center;
   font-size: 6.4rem;
   span {
-    color: $thirdColor;
+    color: global.$thirdColor;
   }
+}
+
+.subtittle {
+  color: global.$primaryColor;
+  font-size: 3.2rem;
+  text-align: center;
+  margin-top: 100px;
 }

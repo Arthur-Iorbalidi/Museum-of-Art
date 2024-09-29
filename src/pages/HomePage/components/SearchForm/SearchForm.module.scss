@@ -1,6 +1,7 @@
-@import '../../../../constants/global.scss';
+@use '@constants/global.scss' as global;
 
 .searchForm {
+  margin: 0 auto;
   margin-top: 72px;
   max-width: 762px;
   padding: 16px;
@@ -23,14 +24,8 @@
   flex: 1;
 }
 
-.submitBtn {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
-
 .errorMessage {
   font-size: 1.6rem;
-  color: $errorsColor;
+  color: global.$errorsColor;
   text-align: center;
 }

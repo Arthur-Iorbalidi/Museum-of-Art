@@ -1,5 +1,5 @@
-@import './fonts.scss';
-@import './constants/global.scss';
+@use './fonts.scss';
+@use '@constants/global.scss' as global;
 
 * {
   margin: 0;
@@ -10,14 +10,17 @@
 html {
   font-size: 10px;
   font-family: 'Poppins';
-  color: $primaryColor;
+  color: global.$primaryColor;
+}
+
+body {
+  background-color: global.$primaryBackgroundColor;
 }
 
 #root {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: 30px;
   justify-content: space-between;
 }
 
@@ -27,4 +30,10 @@ a {
 
 ul {
   list-style: none;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
