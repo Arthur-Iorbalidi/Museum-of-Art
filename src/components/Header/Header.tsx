@@ -1,13 +1,13 @@
 import styles from './Header.module.scss';
-import museumLogo from '../../assets/icons/museum-logo-dark.svg';
+import museumLogo from '@assets/icons/museum-logo-dark.svg';
 import { Link } from 'react-router-dom';
-import bookmark from '../../assets/icons/bookmark.svg';
-import home from '../../assets/icons/home.svg';
+import bookmark from '@assets/icons/bookmark.svg';
+import home from '@assets/icons/home.svg';
 
 const Header = () => {
   return (
     <div className={styles.header}>
-      <div className={`${styles.wrapper} wrapper`}>
+      <div className={styles.wrapper}>
         <img src={museumLogo} alt="" />
         <nav>
           <ul className={styles.list}>

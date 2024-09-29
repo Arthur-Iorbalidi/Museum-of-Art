@@ -13,10 +13,12 @@ html {
   color: $primaryColor;
 }
 
-.wrapper {
-  max-width: 1300px;
-  padding: 0 20px;
-  margin: 0 auto;
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: space-between;
 }
 
 a {

@@ -1,12 +1,12 @@
 import styles from './Footer.module.scss';
-import museumLogo from '../../assets/icons/museum-logo-light.svg';
-import githubLogo from '../../assets/icons/github-logo.svg';
-import linkedlnLogo from '../../assets/icons/linkedln-logo.svg';
+import museumLogo from '@assets/icons/museum-logo-light.svg';
+import githubLogo from '@assets/icons/github-logo.svg';
+import linkedlnLogo from '@assets/icons/linkedln-logo.svg';
 
 const Footer = () => {
   return (
     <div className={styles.footer}>
-      <div className={`${styles.wrapper} wrapper`}>
+      <div className={styles.wrapper}>
         <img src={museumLogo} alt="" />
         <div className={styles.info}>
           <span className={styles.author}>Arthur Iorbalidi</span>
