@@ -91,11 +91,10 @@ class ArtworksAPI {
   async getArtworkById(id: string): Promise<IArtworkResponse> {
     const response = await this.api.get(`/${id}`, {
       params: {
-        // fields: this.fields,
+        fields: this.fields,
       },
     });
 
-    console.log(response.data);
     return response.data;
   }
 }

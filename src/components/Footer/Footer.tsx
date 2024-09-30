@@ -7,7 +7,9 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.wrapper}>
-        <img src={museumLogo} alt="" />
+        <div className={styles.img_wrapper}>
+          <img src={museumLogo} alt="logo" className={styles.museum_logo} />
+        </div>
         <div className={styles.info}>
           <span className={styles.author}>Arthur Iorbalidi</span>
           <div className={styles.links}>
