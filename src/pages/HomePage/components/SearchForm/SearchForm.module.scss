@@ -1,6 +1,6 @@
 @use '@constants/global.scss' as global;
 
-.searchForm {
+.search_form {
   margin: 0 auto;
   margin-top: 72px;
   max-width: 762px;
@@ -9,13 +9,13 @@
   background: rgba(57, 57, 57, 0.05);
 }
 
-.formField {
+.form_field {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.queryField {
+.query_field {
   background-color: transparent;
   height: 100%;
   border: none;
@@ -24,7 +24,7 @@
   flex: 1;
 }
 
-.errorMessage {
+.error_message {
   font-size: 1.6rem;
   color: global.$errorsColor;
   text-align: center;

@@ -6,7 +6,7 @@ import home from '@assets/icons/home.svg';
 
 const Header = () => {
   return (
-    <div className={styles.header}>
+    <header className={styles.header}>
       <div className={styles.wrapper}>
         <img src={museumLogo} alt="" />
         <nav>
@@ -14,19 +14,19 @@ const Header = () => {
             <li>
               <Link to="/home" className={styles.link}>
                 <img src={home} alt="" />
-                <span className={styles.linkText}>Home</span>
+                <span className={styles.link_text}>Home</span>
               </Link>
             </li>
             <li>
               <Link to="/favorites" className={styles.link}>
                 <img src={bookmark} alt="" />
-                <span className={styles.linkText}>Your Favorites</span>
+                <span className={styles.link_text}>Your Favorites</span>
               </Link>
             </li>
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
   );
 };
 

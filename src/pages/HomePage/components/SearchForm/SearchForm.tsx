@@ -46,19 +46,19 @@ const SearchForm = ({ handleChangeQuery }: IProps) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={styles.searchForm}>
-      <div className={styles.formField}>
+    <form onSubmit={handleSubmit(onSubmit)} className={styles.search_form}>
+      <div className={styles.form_field}>
         <input
           type="text"
           {...register('query')}
           placeholder="Search..."
-          className={styles.queryField}
+          className={styles.query_field}
         />
         <button type="submit">
           <img src={searchIcon} alt="search" />
         </button>
       </div>
-      <p className={styles.errorMessage}>{errors.query?.message}</p>
+      <p className={styles.error_message}>{errors.query?.message}</p>
     </form>
   );
 };
