@@ -1,0 +1,32 @@
+@use '@constants/global.scss' as global;
+
+.footer {
+  background-color: global.$secondaryBackgroundColor;
+}
+
+.wrapper {
+  max-width: 1300px;
+  padding: 0 20px;
+  margin: 0 auto;
+  min-height: 127px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.author {
+  font-size: 2rem;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

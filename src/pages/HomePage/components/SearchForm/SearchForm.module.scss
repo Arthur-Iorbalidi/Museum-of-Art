@@ -1,0 +1,31 @@
+@use '@constants/global.scss' as global;
+
+.searchForm {
+  margin: 0 auto;
+  margin-top: 72px;
+  max-width: 762px;
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(57, 57, 57, 0.05);
+}
+
+.formField {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.queryField {
+  background-color: transparent;
+  height: 100%;
+  border: none;
+  outline: none;
+  font-size: 2rem;
+  flex: 1;
+}
+
+.errorMessage {
+  font-size: 1.6rem;
+  color: global.$errorsColor;
+  text-align: center;
+}

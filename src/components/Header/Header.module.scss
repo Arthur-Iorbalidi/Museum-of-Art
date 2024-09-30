@@ -1,0 +1,32 @@
+@use '@constants/global.scss' as global;
+
+.header {
+  background: linear-gradient(90deg, #343333 38.05%, #484848 69.22%, #282828 98.98%);
+}
+
+.wrapper {
+  max-width: 1300px;
+  padding: 0 20px;
+  margin: 0 auto;
+  min-height: 127px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.list {
+  display: flex;
+  gap: 24px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.linkText {
+  font-size: 1.6rem;
+  color: global.$lightColor;
+}

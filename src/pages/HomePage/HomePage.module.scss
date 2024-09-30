@@ -1,0 +1,25 @@
+@use '@constants/global.scss' as global;
+
+.wrapper {
+  max-width: 1300px;
+  padding: 120px 20px;
+  margin: 0 auto;
+}
+
+.tittle {
+  margin: 0 auto;
+  max-width: 684px;
+  color: global.$primaryColor;
+  text-align: center;
+  font-size: 6.4rem;
+  span {
+    color: global.$thirdColor;
+  }
+}
+
+.subtittle {
+  color: global.$primaryColor;
+  font-size: 3.2rem;
+  text-align: center;
+  margin-top: 100px;
+}
