@@ -25,3 +25,9 @@
   color: global.$lightColor;
   cursor: auto;
 }
+
+@media (max-width: 950px) {
+  .pagination {
+    justify-content: center;
+  }
+}
