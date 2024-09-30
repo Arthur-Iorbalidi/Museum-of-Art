@@ -1,7 +1,7 @@
 import artworksAPI, { IGetParams, IResponse } from '@services/ArtworksAPI';
 import SearchForm from './components/SearchForm/SearchForm';
 import styles from './HomePage.module.scss';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { defaultSearchValues } from '@constants/defaultSearchValues';
 import Artworks from './components/Artworks/Artworks';
 import Pagination from './components/Pagination/Pagination';
@@ -27,13 +27,13 @@ const HomePage = () => {
     }));
   };
 
-  const handleChangeQuery = (query: string) => {
+  const handleChangeQuery = useCallback((query: string) => {
     setParams((prevParams) => ({
       ...prevParams,
       page: 1,
       searchQuery: query,
     }));
-  };
+  }, []);
 
   return (
     <main>
