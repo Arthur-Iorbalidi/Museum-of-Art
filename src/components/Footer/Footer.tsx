@@ -5,7 +5,7 @@ import linkedlnLogo from '@assets/icons/linkedln-logo.svg';
 
 const Footer = () => {
   return (
-    <div className={styles.footer}>
+    <footer className={styles.footer}>
       <div className={styles.wrapper}>
         <img src={museumLogo} alt="" />
         <div className={styles.info}>
@@ -20,7 +20,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 

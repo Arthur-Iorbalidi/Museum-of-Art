@@ -1,4 +1,7 @@
-import artworksAPI, { IGetParams, IResponse } from '@services/ArtworksAPI';
+import artworksAPI, {
+  IGetParams,
+  IArtworksResponse,
+} from '@services/ArtworksAPI';
 import SearchForm from './components/SearchForm/SearchForm';
 import styles from './HomePage.module.scss';
 import { useCallback, useEffect, useState } from 'react';
@@ -7,7 +10,7 @@ import Artworks from './components/Artworks/Artworks';
 import Pagination from './components/Pagination/Pagination';
 
 const HomePage = () => {
-  const [artworks, setArtworks] = useState<IResponse | null>(null);
+  const [artworks, setArtworks] = useState<IArtworksResponse | null>(null);
   const [params, setParams] = useState<IGetParams>(defaultSearchValues);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -36,7 +39,7 @@ const HomePage = () => {
   }, []);
 
   return (
-    <main>
+    <section className={styles.home_page}>
       <div className={styles.wrapper}>
         <h1 className={styles.tittle}>
           Let&apos;s Find Some <span>Art</span> Here!
@@ -51,7 +54,7 @@ const HomePage = () => {
           />
         )}
       </div>
-    </main>
+    </section>
   );
 };
 

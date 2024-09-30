@@ -26,7 +26,7 @@ const Pagination = ({ pagination, handleChangePage }: IProps) => {
         {pagination.current_page - 2 >= 1 && (
           <button
             onClick={() => handleChangePage(-2)}
-            className={styles.paginationItem}
+            className={styles.pagination_item}
           >
             {pagination.current_page - 2}
           </button>
@@ -34,18 +34,18 @@ const Pagination = ({ pagination, handleChangePage }: IProps) => {
         {pagination.current_page - 1 >= 1 && (
           <button
             onClick={() => handleChangePage(-1)}
-            className={styles.paginationItem}
+            className={styles.pagination_item}
           >
             {pagination.current_page - 1}
           </button>
         )}
-        <button className={`${styles.paginationItem} ${styles.active}`}>
+        <button className={`${styles.pagination_item} ${styles.active}`}>
           {pagination.current_page}
         </button>
         {pagination.current_page + 1 <= lastPageNumber && (
           <button
             onClick={() => handleChangePage(1)}
-            className={styles.paginationItem}
+            className={styles.pagination_item}
           >
             {pagination.current_page + 1}
           </button>
@@ -53,7 +53,7 @@ const Pagination = ({ pagination, handleChangePage }: IProps) => {
         {pagination.current_page + 2 <= lastPageNumber && (
           <button
             onClick={() => handleChangePage(2)}
-            className={styles.paginationItem}
+            className={styles.pagination_item}
           >
             {pagination.current_page + 2}
           </button>

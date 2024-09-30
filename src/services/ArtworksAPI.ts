@@ -7,9 +7,13 @@ export interface IGetParams {
   sort: string;
 }
 
-export interface IResponse {
+export interface IArtworksResponse {
   pagination: IPagination;
   data: IArtwork[];
+}
+
+export interface IArtworkResponse {
+  data: IArtwork;
 }
 
 export interface IPagination {
@@ -32,12 +36,14 @@ export interface IArtwork {
   title: string;
   place_of_origin: string;
   dimensions: string;
+  style_title: string;
+  credit_line: string;
 }
 
 class ArtworksAPI {
   private baseUrl = 'https://api.artic.edu/api/v1/artworks';
   private fields =
-    'id,title,artist_title,date_start,date_end,date_display,artist_display,place_of_origin,dimensions,image_id';
+    'id,title,artist_title,date_start,date_end,date_display,artist_display,place_of_origin,dimensions,image_id,style_title,credit_line';
 
   api = axios.create({
     baseURL: this.baseUrl,
@@ -46,7 +52,7 @@ class ArtworksAPI {
     },
   });
 
-  async get(params: IGetParams): Promise<IResponse> {
+  async get(params: IGetParams): Promise<IArtworksResponse> {
     if (params.searchQuery === '') {
       const response = await this.getArtworks(params);
       return response;
@@ -56,7 +62,7 @@ class ArtworksAPI {
     return response;
   }
 
-  async getArtworks(params: IGetParams): Promise<IResponse> {
+  async getArtworks(params: IGetParams): Promise<IArtworksResponse> {
     const response = await this.api.get('', {
       params: {
         page: params.page,
@@ -68,7 +74,7 @@ class ArtworksAPI {
     return response.data;
   }
 
-  async getArtworksByQuery(params: IGetParams): Promise<IResponse> {
+  async getArtworksByQuery(params: IGetParams): Promise<IArtworksResponse> {
     const response = await this.api.get('/search', {
       params: {
         ...(params.searchQuery !== '' ? { q: params.searchQuery } : {}),
@@ -76,6 +82,16 @@ class ArtworksAPI {
         page: params.page,
         limit: params.limit,
         fields: this.fields,
+      },
+    });
+
+    return response.data;
+  }
+
+  async getArtworkById(id: string): Promise<IArtworkResponse> {
+    const response = await this.api.get(`/${id}`, {
+      params: {
+        // fields: this.fields,
       },
     });
 

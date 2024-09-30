@@ -1,7 +1,7 @@
 import { IArtwork } from '@services/ArtworksAPI';
 import styles from './Artworks.module.scss';
 import Painting from './components/Artwork/Artwork';
-import loadingIcon from '@assets/icons/loading.svg';
+import Loader from '@components/Loader/Loader';
 
 interface IProps {
   artworks: IArtwork[] | undefined;
@@ -11,11 +11,7 @@ interface IProps {
 const Paintings = ({ artworks, isLoading }: IProps) => {
   return (
     <div className={styles.artworks}>
-      {isLoading && (
-        <div className={styles.loadingWrapper}>
-          <img className={styles.loadingIcon} src={loadingIcon} alt="loading" />
-        </div>
-      )}
+      {isLoading && <Loader />}
       {artworks?.map((artwork) => (
         <Painting artwork={artwork} key={artwork.id}></Painting>
       ))}

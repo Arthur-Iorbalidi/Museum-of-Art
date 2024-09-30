@@ -1,5 +1,9 @@
 @use '@constants/global.scss' as global;
 
+.home_page {
+  flex-grow: 1;
+}
+
 .wrapper {
   max-width: 1300px;
   padding: 120px 20px;

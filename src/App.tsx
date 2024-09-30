@@ -10,12 +10,14 @@ function App() {
   return (
     <BrowserRouter>
       <Header></Header>
-      <Routes>
-        <Route path="/" element={<Navigate to="/home" replace />} />
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/favorites" element={<FavoritesPage />} />
-        <Route path="/home/:id" element={<DetailedPage />} />
-      </Routes>
+      <main>
+        <Routes>
+          <Route path="/" element={<Navigate to="/home" replace />} />
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/favorites" element={<FavoritesPage />} />
+          <Route path="/home/:id" element={<DetailedPage />} />
+        </Routes>
+      </main>
       <Footer></Footer>
     </BrowserRouter>
   );
