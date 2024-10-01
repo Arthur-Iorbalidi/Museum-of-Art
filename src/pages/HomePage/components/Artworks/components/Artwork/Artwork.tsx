@@ -9,7 +9,7 @@ interface IProps {
   artwork: IArtwork;
 }
 
-const Painting = ({ artwork }: IProps) => {
+const Artwork = ({ artwork }: IProps) => {
   const [isInFavorites, setIsInFavorites] = useState(
     favouritesAPI.isInFavorites(artwork.id),
   );
@@ -30,11 +30,13 @@ const Painting = ({ artwork }: IProps) => {
 
   return (
     <Link to={`${artwork.id}`} className={styles.artwork}>
-      <img
-        src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/843,/0/default.jpg`}
-        alt="artwork"
-        className={styles.artwork_img}
-      />
+      <div>
+        <img
+          src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/843,/0/default.jpg`}
+          alt="artwork"
+          className={styles.artwork_img}
+        />
+      </div>
       <div className={styles.info}>
         <div className={styles.details}>
           <p className={styles.tittle}>{artwork.title}</p>
@@ -42,11 +44,11 @@ const Painting = ({ artwork }: IProps) => {
         </div>
         <FavoriteButton
           isInFavorites={isInFavorites}
-          callback={handleToggleFavorite}
+          onClick={handleToggleFavorite}
         />
       </div>
     </Link>
   );
 };
 
-export default Painting;
+export default Artwork;

@@ -12,6 +12,10 @@ export interface IArtworksResponse {
   data: IArtwork[];
 }
 
+export interface IFavoritesArtworksResponse {
+  data: IArtwork[];
+}
+
 export interface IArtworkResponse {
   data: IArtwork;
 }
@@ -91,6 +95,23 @@ class ArtworksAPI {
   async getArtworkById(id: string): Promise<IArtworkResponse> {
     const response = await this.api.get(`/${id}`, {
       params: {
+        fields: this.fields,
+      },
+    });
+
+    return response.data;
+  }
+
+  async getArtworksByIds(ids: number[]): Promise<IFavoritesArtworksResponse> {
+    if (ids.length === 0) {
+      return {
+        data: [],
+      };
+    }
+
+    const response = await this.api.get('', {
+      params: {
+        ids: ids,
         fields: this.fields,
       },
     });

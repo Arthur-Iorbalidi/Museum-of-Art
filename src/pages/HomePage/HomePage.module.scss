@@ -29,7 +29,15 @@
 }
 
 @media (max-width: 550px) {
+  .wrapper {
+    padding: 50px 20px;
+  }
+
   .tittle {
     font-size: 4rem;
+  }
+
+  .subtittle {
+    margin-top: 50px;
   }
 }

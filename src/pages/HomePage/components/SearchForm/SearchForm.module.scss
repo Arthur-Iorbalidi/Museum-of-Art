@@ -30,3 +30,9 @@
   color: global.$errorsColor;
   text-align: center;
 }
+
+@media (max-width: 550px) {
+  .search_form {
+    margin-top: 40px;
+  }
+}
