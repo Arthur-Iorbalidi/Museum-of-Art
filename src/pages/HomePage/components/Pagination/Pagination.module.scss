@@ -31,3 +31,12 @@
     justify-content: center;
   }
 }
+
+@media(hover:hover) {
+  .pagination_item:hover {
+    box-shadow: 0 0 5px global.$secondaryColor;
+  }
+  .active:hover {
+    box-shadow: none;
+  }
+}

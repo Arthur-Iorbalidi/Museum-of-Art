@@ -17,6 +17,8 @@
   outline: none;
 }
 
-select:hover {
-  box-shadow: 0 0 5px global.$secondaryColor;
+@media(hover:hover) {
+  .select:hover {
+    box-shadow: 0 0 5px global.$secondaryColor;
+  }
 }
