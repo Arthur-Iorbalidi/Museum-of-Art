@@ -12,6 +12,10 @@ export interface IArtworksResponse {
   data: IArtwork[];
 }
 
+export interface IFavoritesArtworksResponse {
+  data: IArtwork[];
+}
+
 export interface IArtworkResponse {
   data: IArtwork;
 }
@@ -45,7 +49,7 @@ class ArtworksAPI {
   private fields =
     'id,title,artist_title,date_start,date_end,date_display,artist_display,place_of_origin,dimensions,image_id,style_title,credit_line';
 
-  api = axios.create({
+  private api = axios.create({
     baseURL: this.baseUrl,
     headers: {
       'Content-Type': 'application/json',
@@ -91,6 +95,23 @@ class ArtworksAPI {
   async getArtworkById(id: string): Promise<IArtworkResponse> {
     const response = await this.api.get(`/${id}`, {
       params: {
+        fields: this.fields,
+      },
+    });
+
+    return response.data;
+  }
+
+  async getArtworksByIds(ids: number[]): Promise<IFavoritesArtworksResponse> {
+    if (ids.length === 0) {
+      return {
+        data: [],
+      };
+    }
+
+    const response = await this.api.get('', {
+      params: {
+        ids: ids,
         fields: this.fields,
       },
     });

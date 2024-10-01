@@ -1,10 +1,19 @@
 @use '@constants/global.scss' as global;
 
-.artwork {
+.favorite_artwork {
   width: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
+  background-color: global.$secondaryBackgroundColor;
+  border: 1px solid #F0F1F1;
+}
+
+.img_wrapper {
+  padding: 10px 0 10px 10px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .artwork_img {
@@ -14,14 +23,13 @@
 }
 
 .info {
-  margin: 0 auto;
+  flex: 1;
+  flex-shrink: 1;
   width: 100%;
-  background-color: global.$secondaryBackgroundColor;
-  border: 1px solid #F0F1F1;
   padding: 20px 24px;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
   gap: 10px;
 }
 
@@ -40,18 +48,22 @@
   font-size: 1.6rem;
 }
 
-@media (max-width: 950px) {
-  .artwork:last-child {
-    justify-self: center;
-    grid-column: 1 / 3;
-    width: 50%;
-  }
+.favorite_btn_wrapper {
+  align-self: flex-end;
 }
 
-@media (max-width: 650px) {
-  .artwork:last-child {
-    grid-column: auto;
-    width: 100%;
+@media (max-width: 400px) {
+  .favorite_artwork {
+    flex-direction: column;
+  }
+
+  .info {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .favorite_btn_wrapper {
+    align-self: auto;
   }
 }
 

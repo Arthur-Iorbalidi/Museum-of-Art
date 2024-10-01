@@ -1,0 +1,59 @@
+@use '@constants/global.scss' as global;
+
+.favorites_page {
+  flex-grow: 1;
+}
+
+.wrapper {
+  max-width: 1300px;
+  padding: 120px 20px;
+  margin: 0 auto;
+}
+
+.tittle {
+  margin: 0 auto;
+  max-width: 650px;
+  color: global.$primaryColor;
+  text-align: center;
+  font-size: 6.4rem;
+
+  .bookmark_icon {
+    height: 1em;
+    vertical-align: middle;
+  }
+
+  span {
+    display: block;
+    color: global.$thirdColor;
+  }
+}
+
+.subtittle {
+  margin-top: 100px;
+  color: global.$secondaryColor;
+  font-size: 1.6rem;
+  font-weight: 400;
+  text-align: center;
+
+  span {
+    display: block;
+    color: global.$primaryColor;
+    font-size: 3.2rem;
+    font-weight: 400;
+    text-align: center;
+  }
+}
+
+@media (max-width: 550px) {
+  .wrapper {
+    padding: 50px 20px;
+  }
+
+  .tittle {
+    font-size: 4rem;
+  }
+
+  .subtittle {
+    margin-top: 50px;
+  }
+}
