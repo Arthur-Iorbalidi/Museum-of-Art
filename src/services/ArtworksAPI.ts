@@ -45,7 +45,7 @@ class ArtworksAPI {
   private fields =
     'id,title,artist_title,date_start,date_end,date_display,artist_display,place_of_origin,dimensions,image_id,style_title,credit_line';
 
-  api = axios.create({
+  private api = axios.create({
     baseURL: this.baseUrl,
     headers: {
       'Content-Type': 'application/json',

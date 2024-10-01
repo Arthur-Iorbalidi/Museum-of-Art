@@ -4,13 +4,18 @@ import { useEffect, useState } from 'react';
 import artworksAPI, { IArtworkResponse } from '@services/ArtworksAPI';
 import Loader from '@components/Loader/Loader';
 import goBack from '@assets/icons/go-back.svg';
-import favoriteBookmark from '@assets/icons/favorite-bookmark.svg';
+import favouritesAPI from '@services/FavouritesAPI';
+import FavoriteButton from '@components/FavoriteButton/FavoriteButton';
 
 const DetailedPage = () => {
   const { id } = useParams();
 
   const [artwork, setArtwork] = useState<IArtworkResponse | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [isInFavorites, setIsInFavorites] = useState(
+    favouritesAPI.isInFavorites(Number(id)),
+  );
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,6 +26,20 @@ const DetailedPage = () => {
       setIsLoading(false);
     })();
   }, []);
+
+  const handleToggleFavorite = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+  ) => {
+    event.preventDefault();
+
+    if (isInFavorites) {
+      favouritesAPI.removeFromFavourites(artwork!.data.id);
+      setIsInFavorites(false);
+    } else {
+      favouritesAPI.addToFavourites(artwork!.data.id);
+      setIsInFavorites(true);
+    }
+  };
 
   return (
     <section className={styles.detailed_page}>
@@ -36,9 +55,12 @@ const DetailedPage = () => {
               src={`https://www.artic.edu/iiif/2/${artwork.data.image_id}/full/843,/0/default.jpg`}
               alt="artwork"
             />
-            <button className={styles.favourite_btn}>
-              <img src={favoriteBookmark} alt="add to favorites" />
-            </button>
+            <div className={styles.favourite_btn_wrapper}>
+              <FavoriteButton
+                isInFavorites={isInFavorites}
+                callback={handleToggleFavorite}
+              />
+            </div>
           </div>
           <div className={styles.info}>
             <div className={styles.main_info}>

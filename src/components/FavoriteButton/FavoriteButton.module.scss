@@ -1,0 +1,13 @@
+.favourite_btn {
+  background-color: rgb(240, 240, 240);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 59px;
+  height: 59px;
+  border-radius: 35px;
+  flex-shrink: 0;
+  &.in_favorites {
+    background-color: rgba(255, 195, 135, 0.3);
+  }
+}
