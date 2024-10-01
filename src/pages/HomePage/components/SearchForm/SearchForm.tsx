@@ -12,9 +12,10 @@ interface IFormFields {
 
 interface IProps {
   handleChangeQuery: (query: string) => void;
+  currentSearchValue: string;
 }
 
-const SearchForm = ({ handleChangeQuery }: IProps) => {
+const SearchForm = ({ handleChangeQuery, currentSearchValue }: IProps) => {
   const validationSchema = getValidationSchema();
 
   const [lastQuery, setLastQuery] = useState<string>('');
@@ -27,6 +28,9 @@ const SearchForm = ({ handleChangeQuery }: IProps) => {
   } = useForm({
     resolver: yupResolver(validationSchema),
     mode: 'onChange',
+    defaultValues: {
+      query: currentSearchValue,
+    },
   });
 
   const queryValue = watch('query');

@@ -1,17 +1,15 @@
-import artworksAPI, {
-  IGetParams,
-  IArtworksResponse,
-} from '@services/ArtworksAPI';
+import artworksAPI, { IArtworksResponse } from '@services/ArtworksAPI';
 import SearchForm from './components/SearchForm/SearchForm';
 import styles from './HomePage.module.scss';
 import { useCallback, useEffect, useState } from 'react';
-import { defaultSearchValues } from '@constants/defaultSearchValues';
 import Artworks from './components/Artworks/Artworks';
 import Pagination from './components/Pagination/Pagination';
+import Sorting from './components/Sorting/Sorting';
+import { useSearchParamsContext } from '@context/searchParamsContext';
 
 const HomePage = () => {
   const [artworks, setArtworks] = useState<IArtworksResponse | null>(null);
-  const [params, setParams] = useState<IGetParams>(defaultSearchValues);
+  const { params, setParams } = useSearchParamsContext();
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -38,13 +36,27 @@ const HomePage = () => {
     }));
   }, []);
 
+  const handleChangeSorting = useCallback((sortOption: string) => {
+    setParams((prevParams) => ({
+      ...prevParams,
+      page: 1,
+      sort: sortOption,
+    }));
+  }, []);
+
   return (
     <section className={styles.home_page}>
       <div className={styles.wrapper}>
         <h1 className={styles.tittle}>
           Let&apos;s Find Some <span>Art</span> Here!
         </h1>
-        <SearchForm handleChangeQuery={handleChangeQuery} />
+        <SearchForm
+          currentSearchValue={params.searchQuery}
+          handleChangeQuery={handleChangeQuery}
+        />
+        {params.searchQuery !== '' && (
+          <Sorting handleChangeSorting={handleChangeSorting} />
+        )}
         <h2 className={styles.subtittle}>Artworks</h2>
         <Artworks isLoading={isLoading} artworks={artworks?.data} />
         {artworks && (
