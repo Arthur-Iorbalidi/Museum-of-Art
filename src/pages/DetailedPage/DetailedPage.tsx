@@ -6,6 +6,7 @@ import Loader from '@components/Loader/Loader';
 import goBack from '@assets/icons/go-back.svg';
 import favouritesAPI from '@services/FavouritesAPI';
 import FavoriteButton from '@components/FavoriteButton/FavoriteButton';
+import alternativeImg from '@assets/icons/alternative-img.svg';
 
 const DetailedPage = () => {
   const { id } = useParams();
@@ -54,11 +55,14 @@ const DetailedPage = () => {
               className={styles.artwork_img}
               src={`https://www.artic.edu/iiif/2/${artwork.data.image_id}/full/843,/0/default.jpg`}
               alt="artwork"
+              onError={(e) => {
+                e.currentTarget.src = alternativeImg;
+              }}
             />
             <div className={styles.favourite_btn_wrapper}>
               <FavoriteButton
                 isInFavorites={isInFavorites}
-                callback={handleToggleFavorite}
+                onClick={handleToggleFavorite}
               />
             </div>
           </div>
