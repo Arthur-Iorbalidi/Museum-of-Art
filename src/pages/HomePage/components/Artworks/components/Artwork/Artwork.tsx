@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import favouritesAPI from '@services/FavouritesAPI';
 import { useState } from 'react';
 import FavoriteButton from '@components/FavoriteButton/FavoriteButton';
+import alternativeImg from '@assets/icons/alternative-img.svg';
 
 interface IProps {
   artwork: IArtwork;
@@ -35,6 +36,9 @@ const Artwork = ({ artwork }: IProps) => {
           src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/843,/0/default.jpg`}
           alt="artwork"
           className={styles.artwork_img}
+          onError={(e) => {
+            e.currentTarget.src = alternativeImg;
+          }}
         />
       </div>
       <div className={styles.info}>
