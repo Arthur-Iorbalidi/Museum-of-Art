@@ -542,7 +542,7 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.14.5"
 
-"@babel/plugin-syntax-typescript@^7.7.2":
+"@babel/plugin-syntax-typescript@^7.25.7", "@babel/plugin-syntax-typescript@^7.7.2":
   version "7.25.7"
   resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-typescript/-/plugin-syntax-typescript-7.25.7.tgz#bfc05b0cc31ebd8af09964650cee723bb228108b"
   integrity sha512-rR+5FDjpCHqqZN2bzZm18bVYGaejGq5ZkpVCJLXor/+zlSrSoc4KWcHI0URVWjl/68Dyr1uwZUz/1njycEAv9g==
@@ -966,6 +966,17 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.25.7"
 
+"@babel/plugin-transform-typescript@^7.25.7":
+  version "7.25.7"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-typescript/-/plugin-transform-typescript-7.25.7.tgz#8fc7c3d28ddd36bce45b9b48594129d0e560cfbe"
+  integrity sha512-VKlgy2vBzj8AmEzunocMun2fF06bsSWV+FvVXohtL6FGve/+L217qhHxRTVGHEDO/YR8IANcjzgJsd04J8ge5Q==
+  dependencies:
+    "@babel/helper-annotate-as-pure" "^7.25.7"
+    "@babel/helper-create-class-features-plugin" "^7.25.7"
+    "@babel/helper-plugin-utils" "^7.25.7"
+    "@babel/helper-skip-transparent-expression-wrappers" "^7.25.7"
+    "@babel/plugin-syntax-typescript" "^7.25.7"
+
 "@babel/plugin-transform-unicode-escapes@^7.25.7":
   version "7.25.7"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-unicode-escapes/-/plugin-transform-unicode-escapes-7.25.7.tgz#973592b6d13a914794e1de8cf1383e50e0f87f81"
@@ -1106,6 +1117,17 @@
     "@babel/plugin-transform-react-jsx" "^7.25.7"
     "@babel/plugin-transform-react-jsx-development" "^7.25.7"
     "@babel/plugin-transform-react-pure-annotations" "^7.25.7"
+
+"@babel/preset-typescript@^7.25.7":
+  version "7.25.7"
+  resolved "https://registry.yarnpkg.com/@babel/preset-typescript/-/preset-typescript-7.25.7.tgz#43c5b68eccb856ae5b52274b77b1c3c413cde1b7"
+  integrity sha512-rkkpaXJZOFN45Fb+Gki0c+KMIglk4+zZXOoMJuyEK8y8Kkc8Jd3BDmP7qPsz0zQMJj+UD7EprF+AqAXcILnexw==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.25.7"
+    "@babel/helper-validator-option" "^7.25.7"
+    "@babel/plugin-syntax-jsx" "^7.25.7"
+    "@babel/plugin-transform-modules-commonjs" "^7.25.7"
+    "@babel/plugin-transform-typescript" "^7.25.7"
 
 "@babel/runtime@^7.12.5", "@babel/runtime@^7.8.4":
   version "7.25.7"
