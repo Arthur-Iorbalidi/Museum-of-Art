@@ -1,6 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import Artwork from '@pages/HomePage/components/Artworks/components/Artwork/Artwork';
-import favouritesAPI from '@services/FavouritesAPI';
+import FavoriteArtwork from '@pages/FavoritesPage/components/FavoritesArtworks/components/FavoriteArtwork/FavoriteArtwork';
 import { MemoryRouter } from 'react-router-dom';
 import React from 'react';
 
@@ -27,6 +26,8 @@ const mockArtwork = {
 };
 
 describe('Artwork Component', () => {
+  const handleRemove = jest.fn();
+
   beforeEach(() => {
     jest.clearAllMocks();
   });
@@ -34,7 +35,10 @@ describe('Artwork Component', () => {
   test('renders artwork details', () => {
     render(
       <MemoryRouter>
-        <Artwork artwork={mockArtwork} />
+        <FavoriteArtwork
+          handleRemove={handleRemove}
+          favoriteArtwork={mockArtwork}
+        />
       </MemoryRouter>,
     );
 
@@ -49,7 +53,10 @@ describe('Artwork Component', () => {
   test('renders alternative image on error', () => {
     render(
       <MemoryRouter>
-        <Artwork artwork={mockArtwork} />
+        <FavoriteArtwork
+          handleRemove={handleRemove}
+          favoriteArtwork={mockArtwork}
+        />
       </MemoryRouter>,
     );
 
@@ -60,35 +67,19 @@ describe('Artwork Component', () => {
     expect(img).toHaveAttribute('src', 'mocked-alternative-img.svg');
   });
 
-  test('adds artwork to favorites', () => {
-    favouritesAPI.isInFavorites.mockReturnValueOnce(false);
-    render(
-      <MemoryRouter>
-        <Artwork artwork={mockArtwork} />
-      </MemoryRouter>,
-    );
-
-    const favoriteButton = screen.getByRole('button');
-    fireEvent.click(favoriteButton);
-
-    expect(favouritesAPI.addToFavourites).toHaveBeenCalledWith(mockArtwork.id);
-    expect(favouritesAPI.removeFromFavourites).not.toHaveBeenCalled();
-  });
-
   test('removes artwork from favorites', () => {
-    favouritesAPI.isInFavorites.mockReturnValueOnce(true);
     render(
       <MemoryRouter>
-        <Artwork artwork={mockArtwork} />
+        <FavoriteArtwork
+          handleRemove={handleRemove}
+          favoriteArtwork={mockArtwork}
+        />
       </MemoryRouter>,
     );
 
     const favoriteButton = screen.getByRole('button');
     fireEvent.click(favoriteButton);
 
-    expect(favouritesAPI.removeFromFavourites).toHaveBeenCalledWith(
-      mockArtwork.id,
-    );
-    expect(favouritesAPI.addToFavourites).not.toHaveBeenCalled();
+    expect(handleRemove).toHaveBeenCalled();
   });
 });

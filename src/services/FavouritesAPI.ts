@@ -1,4 +1,4 @@
-import storageAPI from './storage';
+import storageAPI from './storageAPI';
 
 class FavouritesAPI {
   private fieldName = 'favorites';

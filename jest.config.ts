@@ -15,4 +15,12 @@ export default {
     '^@context/(.*)$': '<rootDir>/src/context/$1',
     '^@hooks/(.*)$': '<rootDir>/src/hooks/$1',
   },
+  collectCoverageFrom: [
+    'src/**/*.{js,jsx,ts,tsx}',
+    '!src/index.tsx',
+    '!src/**/*.d.ts',
+    '!src/constants/*',
+    '!src/context/*',
+  ],
+  coverageReporters: ['text', 'lcov'],
 };

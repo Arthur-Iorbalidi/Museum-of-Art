@@ -8,7 +8,7 @@ interface IProps {
   isLoading: boolean;
 }
 
-const Paintings = ({ artworks, isLoading }: IProps) => {
+const Artworks = ({ artworks, isLoading }: IProps) => {
   return (
     <div className={styles.artworks}>
       {isLoading && <Loader />}
@@ -19,4 +19,4 @@ const Paintings = ({ artworks, isLoading }: IProps) => {
   );
 };
 
-export default Paintings;
+export default Artworks;

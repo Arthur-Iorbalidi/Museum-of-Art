@@ -12,6 +12,7 @@
     "preview": "vite preview",
     "lint-staged": "lint-staged",
     "test": "jest",
+    "test:coverage": "jest --coverage",
     "prepare": "husky"
   },
   "dependencies": {

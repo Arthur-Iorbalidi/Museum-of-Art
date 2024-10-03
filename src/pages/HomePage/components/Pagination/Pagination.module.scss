@@ -13,6 +13,12 @@
   align-self:last baseline;
 }
 
+.previos_btn, .next_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .pagination_item {
   width: 30px;
   height: 30px;
@@ -35,6 +41,9 @@
 @media(hover:hover) {
   .pagination_item:hover {
     box-shadow: 0 0 5px global.$secondaryColor;
+  }
+  .previos_btn:hover, .next_btn:hover {
+    transform: scale(1.2);
   }
   .active:hover {
     box-shadow: none;
