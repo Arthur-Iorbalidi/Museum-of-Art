@@ -19,7 +19,10 @@ const FavoriteArtwork = ({ favoriteArtwork, handleRemove }: IProps) => {
   };
 
   return (
-    <Link to={`${favoriteArtwork.id}`} className={styles.favorite_artwork}>
+    <Link
+      to={`/home/${favoriteArtwork.id}`}
+      className={styles.favorite_artwork}
+    >
       <div className={styles.img_wrapper}>
         <img
           src={`https://www.artic.edu/iiif/2/${favoriteArtwork.image_id}/full/843,/0/default.jpg`}

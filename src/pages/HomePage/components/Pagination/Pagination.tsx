@@ -19,7 +19,10 @@ const Pagination = ({ pagination, handleChangePage }: IProps) => {
     <div className={styles.pagination}>
       <div className={styles.wrapper}>
         {pagination.current_page > 1 && (
-          <button onClick={() => handleChangePage(-1)}>
+          <button
+            className={styles.previos_btn}
+            onClick={() => handleChangePage(-1)}
+          >
             <img src={arrowBack} alt="previos" />
           </button>
         )}
@@ -59,7 +62,10 @@ const Pagination = ({ pagination, handleChangePage }: IProps) => {
           </button>
         )}
         {pagination.current_page < lastPageNumber && (
-          <button onClick={() => handleChangePage(1)}>
+          <button
+            className={styles.next_btn}
+            onClick={() => handleChangePage(1)}
+          >
             <img src={arrowForward} alt="next" />
           </button>
         )}

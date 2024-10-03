@@ -46,13 +46,13 @@ const Header = () => {
           </nav>
         )}
         {currentWindowWidth < 550 && (
-          <div
+          <button
             className={`${styles.burger_btn} ${isBurgerMenuOpened ? styles.active : ''}`}
             onClick={handleOpenBurgerMenu}
           >
             <div className={styles.burger_line}></div>
             <div className={styles.burger_line}></div>
-          </div>
+          </button>
         )}
         {isBurgerMenuOpened && (
           <nav className={styles.burger_menu}>

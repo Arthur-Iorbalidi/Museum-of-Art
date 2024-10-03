@@ -14,10 +14,10 @@ const Footer = () => {
           <span className={styles.author}>Arthur Iorbalidi</span>
           <div className={styles.links}>
             <a href="https://github.com/Arthur-Iorbalidi">
-              <img src={githubLogo} alt="" />
+              <img src={githubLogo} alt="github link" />
             </a>
             <a href="https://www.linkedin.com/in/arthur-iorbalidi-094340309/">
-              <img src={linkedlnLogo} alt="" />
+              <img src={linkedlnLogo} alt="linkedin link" />
             </a>
           </div>
         </div>
