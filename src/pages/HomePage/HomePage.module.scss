@@ -1,0 +1,43 @@
+@use '@constants/global.scss' as global;
+
+.home_page {
+  flex-grow: 1;
+}
+
+.wrapper {
+  max-width: 1300px;
+  padding: 120px 20px;
+  margin: 0 auto;
+}
+
+.tittle {
+  margin: 0 auto;
+  max-width: 684px;
+  color: global.$primaryColor;
+  text-align: center;
+  font-size: 6.4rem;
+  span {
+    color: global.$thirdColor;
+  }
+}
+
+.subtittle {
+  color: global.$primaryColor;
+  font-size: 3.2rem;
+  text-align: center;
+  margin-top: 100px;
+}
+
+@media (max-width: 550px) {
+  .wrapper {
+    padding: 50px 20px;
+  }
+
+  .tittle {
+    font-size: 4rem;
+  }
+
+  .subtittle {
+    margin-top: 50px;
+  }
+}

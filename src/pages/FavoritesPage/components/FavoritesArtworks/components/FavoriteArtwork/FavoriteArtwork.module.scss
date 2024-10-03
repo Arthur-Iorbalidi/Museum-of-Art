@@ -1,0 +1,74 @@
+@use '@constants/global.scss' as global;
+
+.favorite_artwork {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: global.$secondaryBackgroundColor;
+  border: 1px solid #F0F1F1;
+}
+
+.img_wrapper {
+  padding: 10px 0 10px 10px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.artwork_img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.info {
+  flex: 1;
+  flex-shrink: 1;
+  width: 100%;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.details {
+  flex-grow: 1;
+}
+
+.tittle {
+  color: global.$primaryColor;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.author {
+  color: global.$secondaryColor;
+  font-size: 1.6rem;
+}
+
+.favorite_btn_wrapper {
+  align-self: flex-end;
+}
+
+@media (max-width: 400px) {
+  .favorite_artwork {
+    flex-direction: column;
+  }
+
+  .info {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .favorite_btn_wrapper {
+    align-self: auto;
+  }
+}
+
+@media (hover:hover) {
+  .artwork:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+}
