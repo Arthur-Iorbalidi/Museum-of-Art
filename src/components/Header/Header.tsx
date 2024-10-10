@@ -5,18 +5,26 @@ import bookmark from '@assets/icons/bookmark.svg';
 import home from '@assets/icons/home.svg';
 import useWindowWidth from '@hooks/useWindowWidth';
 import { useEffect, useState } from 'react';
+import BurgerMenu from '@components/ui/BurgerMenu/BurgerMenu';
 
 const Header = () => {
   const currentWindowWidth = useWindowWidth();
 
   const [isBurgerMenuOpened, setIsBurgerMenuOpened] = useState(false);
 
-  const handleOpenBurgerMenu = () => {
+  const handleOpenBurgerMenu = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+  ) => {
+    event.stopPropagation();
+    toggleBurgerMenu();
+  };
+
+  const toggleBurgerMenu = () => {
     setIsBurgerMenuOpened((prev) => !prev);
   };
 
   useEffect(() => {
-    if (currentWindowWidth >= 550) {
+    if (currentWindowWidth >= 5500) {
       setIsBurgerMenuOpened(false);
     }
   }, [currentWindowWidth]);
@@ -54,32 +62,10 @@ const Header = () => {
             <div className={styles.burger_line}></div>
           </button>
         )}
-        {isBurgerMenuOpened && (
-          <nav className={styles.burger_menu}>
-            <ul className={styles.burger_menu_list}>
-              <li>
-                <Link
-                  to="/home"
-                  className={styles.link}
-                  onClick={() => setIsBurgerMenuOpened(false)}
-                >
-                  <img src={home} alt="" />
-                  <span className={styles.link_text}>Home</span>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/favorites"
-                  className={styles.link}
-                  onClick={() => setIsBurgerMenuOpened(false)}
-                >
-                  <img src={bookmark} alt="" />
-                  <span className={styles.link_text}>Your Favorites</span>
-                </Link>
-              </li>
-            </ul>
-          </nav>
-        )}
+        <BurgerMenu
+          toggleBurgerMenu={toggleBurgerMenu}
+          isBurgerMenuOpened={isBurgerMenuOpened}
+        />
       </div>
     </header>
   );
