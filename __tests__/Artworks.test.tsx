@@ -1,17 +1,14 @@
 /* eslint-disable react/prop-types */
 import { render, screen } from '@testing-library/react';
-import Artworks from '@pages/HomePage/components/Artworks/Artworks';
+import Artworks from '@components/Artworks/Artworks';
 import { IArtwork } from '@services/ArtworksAPI';
 import React from 'react';
 
-jest.mock(
-  '../src/pages/HomePage/components/Artworks/components/Artwork/Artwork',
-  () => {
-    return function MockArtwork({ artwork }) {
-      return <div data-testid="artwork">{artwork.title}</div>;
-    };
-  },
-);
+jest.mock('@components/Artwork/Artwork', () => {
+  return function MockArtwork({ artwork }) {
+    return <div data-testid="artwork">{artwork.title}</div>;
+  };
+});
 
 describe('Paintings Component', () => {
   test('should render Loader when isLoading is true', () => {

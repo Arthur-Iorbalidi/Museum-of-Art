@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import FavoriteArtwork from '@pages/FavoritesPage/components/FavoritesArtworks/components/FavoriteArtwork/FavoriteArtwork';
+import FavoriteArtwork from '@components/FavoriteArtwork/FavoriteArtwork';
 import { MemoryRouter } from 'react-router-dom';
 import React from 'react';
 

@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import Artwork from '@pages/HomePage/components/Artworks/components/Artwork/Artwork';
+import Artwork from '@components/Artwork/Artwork';
 import favouritesAPI from '@services/FavouritesAPI';
 import { MemoryRouter } from 'react-router-dom';
 import React from 'react';

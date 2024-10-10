@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import Sorting from '@pages/HomePage/components/Sorting/Sorting';
+import Sorting from '@components/Sorting/Sorting';
 import { sortOptions } from '@constants/sortOptions';
 import React from 'react';
 

@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import Pagination from '@pages/HomePage/components/Pagination/Pagination';
+import Pagination from '@components/Pagination/Pagination';
 import { IPagination } from '@services/ArtworksAPI';
 import React from 'react';
 
