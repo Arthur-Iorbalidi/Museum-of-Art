@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import styles from './FavoritesPage.module.scss';
 import favouritesAPI from '@services/FavouritesAPI';
 import FavoritesArtworks from '@components/FavoritesArtworks/FavoritesArtworks';
-import favoriteBookmark from '@assets/icons/favorite-bookmark.svg';
+import images from '@constants/images';
 
 const FavoritesPage = () => {
   const [favoriteArtworks, setFavoriteArtworks] =
@@ -40,7 +40,7 @@ const FavoritesPage = () => {
           <span>
             <img
               className={styles.bookmark_icon}
-              src={favoriteBookmark}
+              src={images.favoriteBookmark}
               alt=""
             />{' '}
             Favorites

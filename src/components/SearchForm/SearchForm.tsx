@@ -1,10 +1,10 @@
 import styles from './SearchForm.module.scss';
-import searchIcon from '@assets/icons/search.svg';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import getValidationSchema from './validationSchema';
 import useDebounce from '@hooks/useDebounce';
 import { useEffect, useState } from 'react';
+import images from '@constants/images';
 
 interface IFormFields {
   query: string;
@@ -59,7 +59,7 @@ const SearchForm = ({ handleChangeQuery, currentSearchValue }: IProps) => {
           className={styles.query_field}
         />
         <button type="submit">
-          <img src={searchIcon} alt="search" />
+          <img src={images.searchIcon} alt="search" />
         </button>
       </div>
       <p className={styles.error_message}>{errors.query?.message}</p>

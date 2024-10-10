@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom';
 import styles from './BurgerMenu.module.scss';
-import bookmark from '@assets/icons/bookmark.svg';
-import home from '@assets/icons/home.svg';
 import { useRef, useEffect } from 'react';
 import routes from '@constants/routes';
+import images from '@constants/images';
 
 interface IProps {
   toggleBurgerMenu: () => void;
@@ -42,7 +41,7 @@ const BurgerMenu = ({ toggleBurgerMenu, isBurgerMenuOpened }: IProps) => {
                 className={styles.link}
                 onClick={toggleBurgerMenu}
               >
-                <img src={home} alt="home icon" />
+                <img src={images.home} alt="home icon" />
                 <span className={styles.link_text}>Home</span>
               </Link>
             </li>
@@ -52,7 +51,7 @@ const BurgerMenu = ({ toggleBurgerMenu, isBurgerMenuOpened }: IProps) => {
                 className={styles.link}
                 onClick={toggleBurgerMenu}
               >
-                <img src={bookmark} alt="favorites icon" />
+                <img src={images.bookmark} alt="favorites icon" />
                 <span className={styles.link_text}>Your Favorites</span>
               </Link>
             </li>

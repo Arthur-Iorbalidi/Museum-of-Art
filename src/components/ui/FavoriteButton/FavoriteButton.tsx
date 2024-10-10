@@ -1,5 +1,5 @@
+import images from '@constants/images';
 import styles from './FavoriteButton.module.scss';
-import favoriteBookmark from '@assets/icons/favorite-bookmark.svg';
 
 interface IProps {
   isInFavorites: boolean;
@@ -12,7 +12,7 @@ const FavoriteButton = ({ isInFavorites, onClick }: IProps) => {
       onClick={onClick}
       className={`${styles.favourite_btn} ${isInFavorites ? styles.in_favorites : ''}`}
     >
-      <img src={favoriteBookmark} alt="add to favorites" />
+      <img src={images.favoriteBookmark} alt="add to favorites" />
     </button>
   );
 };

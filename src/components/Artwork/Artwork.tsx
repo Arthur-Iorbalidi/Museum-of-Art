@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import favouritesAPI from '@services/FavouritesAPI';
 import { useState } from 'react';
 import FavoriteButton from '@components/ui/FavoriteButton/FavoriteButton';
-import alternativeImg from '@assets/icons/alternative-img.svg';
+import images from '@constants/images';
 
 interface IProps {
   artwork: IArtwork;
@@ -37,7 +37,7 @@ const Artwork = ({ artwork }: IProps) => {
           alt="artwork"
           className={styles.artwork_img}
           onError={(e) => {
-            e.currentTarget.src = alternativeImg;
+            e.currentTarget.src = images.alternativeArtworkImg;
           }}
         />
       </div>

@@ -3,10 +3,9 @@ import styles from './DetailedPage.module.scss';
 import { useEffect, useState } from 'react';
 import artworksAPI, { IArtworkResponse } from '@services/ArtworksAPI';
 import Loader from '@components/ui/Loader/Loader';
-import goBack from '@assets/icons/go-back.svg';
 import favouritesAPI from '@services/FavouritesAPI';
 import FavoriteButton from '@components/ui/FavoriteButton/FavoriteButton';
-import alternativeImg from '@assets/icons/alternative-img.svg';
+import images from '@constants/images';
 
 const DetailedPage = () => {
   const { id } = useParams();
@@ -48,7 +47,7 @@ const DetailedPage = () => {
       {artwork && (
         <div className={styles.wrapper}>
           <button className={styles.back_btn} onClick={() => navigate(-1)}>
-            <img src={goBack} alt="go back" />
+            <img src={images.goBackIcon} alt="go back" />
           </button>
           <div className={styles.img_wrapper}>
             <img
@@ -56,7 +55,7 @@ const DetailedPage = () => {
               src={`https://www.artic.edu/iiif/2/${artwork.data.image_id}/full/843,/0/default.jpg`}
               alt="artwork"
               onError={(e) => {
-                e.currentTarget.src = alternativeImg;
+                e.currentTarget.src = images.alternativeArtworkImg;
               }}
             />
             <div className={styles.favourite_btn_wrapper}>

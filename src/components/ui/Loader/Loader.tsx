@@ -1,10 +1,14 @@
+import images from '@constants/images';
 import styles from './Loader.module.scss';
-import loadingIcon from '@assets/icons/loading.svg';
 
 const Loader = () => {
   return (
     <div className={styles.loadingWrapper}>
-      <img className={styles.loadingIcon} src={loadingIcon} alt="loading" />
+      <img
+        className={styles.loadingIcon}
+        src={images.loadingIcon}
+        alt="loading"
+      />
     </div>
   );
 };

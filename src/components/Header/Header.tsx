@@ -1,13 +1,11 @@
 import styles from './Header.module.scss';
-import museumLogo from '@assets/icons/museum-logo-dark.svg';
 import { Link } from 'react-router-dom';
-import bookmark from '@assets/icons/bookmark.svg';
-import home from '@assets/icons/home.svg';
 import useWindowWidth from '@hooks/useWindowWidth';
 import { useEffect, useState } from 'react';
 import BurgerMenu from '@components/ui/BurgerMenu/BurgerMenu';
 import BurgerMenuButton from '@components/ui/BurgerMenuButton/BurgerMenuButton';
 import routes from '@constants/routes';
+import images from '@constants/images';
 
 const Header = () => {
   const currentWindowWidth = useWindowWidth();
@@ -35,20 +33,24 @@ const Header = () => {
     <header className={styles.header}>
       <div className={styles.wrapper}>
         <div className={styles.img_wrapper}>
-          <img src={museumLogo} alt="logo" className={styles.museum_logo} />
+          <img
+            src={images.museumLogoLight}
+            alt="logo"
+            className={styles.museum_logo}
+          />
         </div>
         {currentWindowWidth >= 550 && (
           <nav>
             <ul className={styles.list}>
               <li>
                 <Link to={routes.home} className={styles.link}>
-                  <img src={home} alt="home icon" />
+                  <img src={images.home} alt="home icon" />
                   <span className={styles.link_text}>Home</span>
                 </Link>
               </li>
               <li>
                 <Link to={routes.favorites} className={styles.link}>
-                  <img src={bookmark} alt="favorites icon" />
+                  <img src={images.bookmark} alt="favorites icon" />
                   <span className={styles.link_text}>Your Favorites</span>
                 </Link>
               </li>

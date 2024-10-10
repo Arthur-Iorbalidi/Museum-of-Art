@@ -1,7 +1,6 @@
 import styles from './Pagination.module.scss';
-import arrowBack from '@assets/icons/arrow-back.svg';
-import arrowForward from '@assets/icons/arrow-forward.svg';
 import { maxPageNumber } from '@constants/defaultSearchValues';
+import images from '@constants/images';
 import { IPagination } from '@services/ArtworksAPI';
 
 interface IProps {
@@ -23,7 +22,7 @@ const Pagination = ({ pagination, handleChangePage }: IProps) => {
             className={styles.previos_btn}
             onClick={() => handleChangePage(-1)}
           >
-            <img src={arrowBack} alt="previos" />
+            <img src={images.arrowBack} alt="previos" />
           </button>
         )}
         {pagination.current_page - 2 >= 1 && (
@@ -66,7 +65,7 @@ const Pagination = ({ pagination, handleChangePage }: IProps) => {
             className={styles.next_btn}
             onClick={() => handleChangePage(1)}
           >
-            <img src={arrowForward} alt="next" />
+            <img src={images.arrowForward} alt="next" />
           </button>
         )}
       </div>
