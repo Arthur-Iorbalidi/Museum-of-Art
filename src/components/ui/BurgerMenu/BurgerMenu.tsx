@@ -3,6 +3,7 @@ import styles from './BurgerMenu.module.scss';
 import bookmark from '@assets/icons/bookmark.svg';
 import home from '@assets/icons/home.svg';
 import { useRef, useEffect } from 'react';
+import routes from '@constants/routes';
 
 interface IProps {
   toggleBurgerMenu: () => void;
@@ -37,21 +38,21 @@ const BurgerMenu = ({ toggleBurgerMenu, isBurgerMenuOpened }: IProps) => {
           <ul className={styles.burger_menu_list}>
             <li>
               <Link
-                to="/home"
+                to={routes.home}
                 className={styles.link}
                 onClick={toggleBurgerMenu}
               >
-                <img src={home} alt="" />
+                <img src={home} alt="home icon" />
                 <span className={styles.link_text}>Home</span>
               </Link>
             </li>
             <li>
               <Link
-                to="/favorites"
+                to={routes.favorites}
                 className={styles.link}
                 onClick={toggleBurgerMenu}
               >
-                <img src={bookmark} alt="" />
+                <img src={bookmark} alt="favorites icon" />
                 <span className={styles.link_text}>Your Favorites</span>
               </Link>
             </li>

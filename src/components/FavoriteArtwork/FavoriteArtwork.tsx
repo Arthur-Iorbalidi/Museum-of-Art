@@ -3,6 +3,7 @@ import styles from './FavoriteArtwork.module.scss';
 import FavoriteButton from '@components/ui/FavoriteButton/FavoriteButton';
 import { Link } from 'react-router-dom';
 import alternativeImg from '@assets/icons/alternative-img.svg';
+import routes from '@constants/routes';
 
 interface IProps {
   favoriteArtwork: IArtwork;
@@ -20,7 +21,7 @@ const FavoriteArtwork = ({ favoriteArtwork, handleRemove }: IProps) => {
 
   return (
     <Link
-      to={`/home/${favoriteArtwork.id}`}
+      to={`${routes.home}/${favoriteArtwork.id}`}
       className={styles.favorite_artwork}
     >
       <div className={styles.img_wrapper}>

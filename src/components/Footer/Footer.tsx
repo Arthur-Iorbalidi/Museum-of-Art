@@ -2,6 +2,7 @@ import styles from './Footer.module.scss';
 import museumLogo from '@assets/icons/museum-logo-light.svg';
 import githubLogo from '@assets/icons/github-logo.svg';
 import linkedlnLogo from '@assets/icons/linkedln-logo.svg';
+import authorInfo from '@constants/authorInfo';
 
 const Footer = () => {
   return (
@@ -11,12 +12,12 @@ const Footer = () => {
           <img src={museumLogo} alt="logo" className={styles.museum_logo} />
         </div>
         <div className={styles.info}>
-          <span className={styles.author}>Arthur Iorbalidi</span>
+          <span className={styles.author}>{authorInfo.name}</span>
           <div className={styles.links}>
-            <a href="https://github.com/Arthur-Iorbalidi">
+            <a href={authorInfo.githubLink}>
               <img src={githubLogo} alt="github link" />
             </a>
-            <a href="https://www.linkedin.com/in/arthur-iorbalidi-094340309/">
+            <a href={authorInfo.linkedLnLink}>
               <img src={linkedlnLogo} alt="linkedin link" />
             </a>
           </div>

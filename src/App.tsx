@@ -7,6 +7,7 @@ import Header from '@components/Header/Header';
 import Footer from '@components/Footer/Footer';
 import { SearchParamsProvider } from '@context/searchParamsContext';
 import ErrorBoundary from '@components/ErrorBoundary/ErrorBoundary';
+import routes from '@constants/routes';
 
 function App() {
   return (
@@ -16,10 +17,10 @@ function App() {
         <main>
           <ErrorBoundary>
             <Routes>
-              <Route path="/" element={<Navigate to="/home" replace />} />
-              <Route path="/home" element={<HomePage />} />
-              <Route path="/favorites" element={<FavoritesPage />} />
-              <Route path="/home/:id" element={<DetailedPage />} />
+              <Route path="/" element={<Navigate to={routes.home} replace />} />
+              <Route path={routes.home} element={<HomePage />} />
+              <Route path={routes.favorites} element={<FavoritesPage />} />
+              <Route path={routes.detailed} element={<DetailedPage />} />
             </Routes>
           </ErrorBoundary>
         </main>

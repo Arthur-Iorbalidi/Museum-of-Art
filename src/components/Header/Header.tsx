@@ -7,6 +7,7 @@ import useWindowWidth from '@hooks/useWindowWidth';
 import { useEffect, useState } from 'react';
 import BurgerMenu from '@components/ui/BurgerMenu/BurgerMenu';
 import BurgerMenuButton from '@components/ui/BurgerMenuButton/BurgerMenuButton';
+import routes from '@constants/routes';
 
 const Header = () => {
   const currentWindowWidth = useWindowWidth();
@@ -40,14 +41,14 @@ const Header = () => {
           <nav>
             <ul className={styles.list}>
               <li>
-                <Link to="/home" className={styles.link}>
-                  <img src={home} alt="" />
+                <Link to={routes.home} className={styles.link}>
+                  <img src={home} alt="home icon" />
                   <span className={styles.link_text}>Home</span>
                 </Link>
               </li>
               <li>
-                <Link to="/favorites" className={styles.link}>
-                  <img src={bookmark} alt="" />
+                <Link to={routes.favorites} className={styles.link}>
+                  <img src={bookmark} alt="favorites icon" />
                   <span className={styles.link_text}>Your Favorites</span>
                 </Link>
               </li>
