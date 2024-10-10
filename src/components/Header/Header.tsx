@@ -13,6 +13,12 @@ const Header = () => {
 
   const [isBurgerMenuOpened, setIsBurgerMenuOpened] = useState(false);
 
+  useEffect(() => {
+    if (currentWindowWidth >= 550) {
+      setIsBurgerMenuOpened(false);
+    }
+  }, [currentWindowWidth]);
+
   const handleOpenBurgerMenu = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ) => {
@@ -23,12 +29,6 @@ const Header = () => {
   const toggleBurgerMenu = () => {
     setIsBurgerMenuOpened((prev) => !prev);
   };
-
-  useEffect(() => {
-    if (currentWindowWidth >= 5500) {
-      setIsBurgerMenuOpened(false);
-    }
-  }, [currentWindowWidth]);
 
   return (
     <header className={styles.header}>
