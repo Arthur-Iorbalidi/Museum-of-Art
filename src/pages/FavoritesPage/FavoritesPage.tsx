@@ -2,7 +2,7 @@ import artworksAPI, { IFavoritesArtworksResponse } from '@services/ArtworksAPI';
 import { useState, useEffect } from 'react';
 import styles from './FavoritesPage.module.scss';
 import favouritesAPI from '@services/FavouritesAPI';
-import FavoritesArtworks from './components/FavoritesArtworks/FavoritesArtworks';
+import FavoritesArtworks from '@components/FavoritesArtworks/FavoritesArtworks';
 import favoriteBookmark from '@assets/icons/favorite-bookmark.svg';
 
 const FavoritesPage = () => {

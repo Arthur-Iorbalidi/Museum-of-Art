@@ -1,5 +1,5 @@
 import styles from './SearchForm.module.scss';
-import searchIcon from '../../../../assets/icons/search.svg';
+import searchIcon from '@assets/icons/search.svg';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import getValidationSchema from './validationSchema';

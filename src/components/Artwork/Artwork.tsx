@@ -3,7 +3,7 @@ import { IArtwork } from '@services/ArtworksAPI';
 import { Link } from 'react-router-dom';
 import favouritesAPI from '@services/FavouritesAPI';
 import { useState } from 'react';
-import FavoriteButton from '@components/FavoriteButton/FavoriteButton';
+import FavoriteButton from '@components/ui/FavoriteButton/FavoriteButton';
 import alternativeImg from '@assets/icons/alternative-img.svg';
 
 interface IProps {

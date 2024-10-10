@@ -1,6 +1,6 @@
 import { IArtwork } from '@services/ArtworksAPI';
 import styles from './FavoriteArtwork.module.scss';
-import FavoriteButton from '@components/FavoriteButton/FavoriteButton';
+import FavoriteButton from '@components/ui/FavoriteButton/FavoriteButton';
 import { Link } from 'react-router-dom';
 import alternativeImg from '@assets/icons/alternative-img.svg';
 

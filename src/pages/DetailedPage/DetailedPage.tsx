@@ -2,10 +2,10 @@ import { useNavigate, useParams } from 'react-router-dom';
 import styles from './DetailedPage.module.scss';
 import { useEffect, useState } from 'react';
 import artworksAPI, { IArtworkResponse } from '@services/ArtworksAPI';
-import Loader from '@components/Loader/Loader';
+import Loader from '@components/ui/Loader/Loader';
 import goBack from '@assets/icons/go-back.svg';
 import favouritesAPI from '@services/FavouritesAPI';
-import FavoriteButton from '@components/FavoriteButton/FavoriteButton';
+import FavoriteButton from '@components/ui/FavoriteButton/FavoriteButton';
 import alternativeImg from '@assets/icons/alternative-img.svg';
 
 const DetailedPage = () => {

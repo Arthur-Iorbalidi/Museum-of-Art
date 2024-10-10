@@ -1,7 +1,7 @@
 import { IArtwork } from '@services/ArtworksAPI';
 import styles from './FavoritesArtworks.module.scss';
-import Loader from '@components/Loader/Loader';
-import FavoriteArtwork from './components/FavoriteArtwork/FavoriteArtwork';
+import Loader from '@components/ui/Loader/Loader';
+import FavoriteArtwork from '@components/FavoriteArtwork/FavoriteArtwork';
 
 interface IProps {
   favoriteArtworks: IArtwork[] | undefined;
