@@ -6,6 +6,7 @@ import home from '@assets/icons/home.svg';
 import useWindowWidth from '@hooks/useWindowWidth';
 import { useEffect, useState } from 'react';
 import BurgerMenu from '@components/ui/BurgerMenu/BurgerMenu';
+import BurgerMenuButton from '@components/ui/BurgerMenuButton/BurgerMenuButton';
 
 const Header = () => {
   const currentWindowWidth = useWindowWidth();
@@ -54,13 +55,10 @@ const Header = () => {
           </nav>
         )}
         {currentWindowWidth < 550 && (
-          <button
-            className={`${styles.burger_btn} ${isBurgerMenuOpened ? styles.active : ''}`}
-            onClick={handleOpenBurgerMenu}
-          >
-            <div className={styles.burger_line}></div>
-            <div className={styles.burger_line}></div>
-          </button>
+          <BurgerMenuButton
+            isBurgerMenuOpened={isBurgerMenuOpened}
+            handleOpenBurgerMenu={handleOpenBurgerMenu}
+          />
         )}
         <BurgerMenu
           toggleBurgerMenu={toggleBurgerMenu}
