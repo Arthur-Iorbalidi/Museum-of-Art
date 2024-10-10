@@ -1,7 +1,13 @@
 import styles from './Pagination.module.scss';
-import { maxPageNumber } from '@constants/defaultSearchValues';
+import {
+  arrowsGaps,
+  firstPageNumber,
+  maxPageNumber,
+  paginationGaps,
+} from '@constants/paginationSettings';
 import images from '@constants/images';
 import { IPagination } from '@services/ArtworksAPI';
+import PaginationItem from '@components/PaginationItem/PaginationItem';
 
 interface IProps {
   pagination: IPagination;
@@ -17,53 +23,32 @@ const Pagination = ({ pagination, handleChangePage }: IProps) => {
   return (
     <div className={styles.pagination}>
       <div className={styles.wrapper}>
-        {pagination.current_page > 1 && (
+        {pagination.current_page > firstPageNumber && (
           <button
             className={styles.previos_btn}
-            onClick={() => handleChangePage(-1)}
+            onClick={() => handleChangePage(arrowsGaps.back)}
           >
             <img src={images.arrowBack} alt="previos" />
           </button>
         )}
-        {pagination.current_page - 2 >= 1 && (
-          <button
-            onClick={() => handleChangePage(-2)}
-            className={styles.pagination_item}
-          >
-            {pagination.current_page - 2}
-          </button>
-        )}
-        {pagination.current_page - 1 >= 1 && (
-          <button
-            onClick={() => handleChangePage(-1)}
-            className={styles.pagination_item}
-          >
-            {pagination.current_page - 1}
-          </button>
-        )}
-        <button className={`${styles.pagination_item} ${styles.active}`}>
-          {pagination.current_page}
-        </button>
-        {pagination.current_page + 1 <= lastPageNumber && (
-          <button
-            onClick={() => handleChangePage(1)}
-            className={styles.pagination_item}
-          >
-            {pagination.current_page + 1}
-          </button>
-        )}
-        {pagination.current_page + 2 <= lastPageNumber && (
-          <button
-            onClick={() => handleChangePage(2)}
-            className={styles.pagination_item}
-          >
-            {pagination.current_page + 2}
-          </button>
-        )}
+        {paginationGaps.map((gap) => {
+          const page = pagination.current_page + gap;
+          if (page >= firstPageNumber && page <= lastPageNumber) {
+            return (
+              <PaginationItem
+                key={gap}
+                page={page}
+                gap={gap}
+                handleChangePageCallback={handleChangePage}
+              />
+            );
+          }
+          return null;
+        })}
         {pagination.current_page < lastPageNumber && (
           <button
             className={styles.next_btn}
-            onClick={() => handleChangePage(1)}
+            onClick={() => handleChangePage(arrowsGaps.forward)}
           >
             <img src={images.arrowForward} alt="next" />
           </button>

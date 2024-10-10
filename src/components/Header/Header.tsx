@@ -6,6 +6,7 @@ import BurgerMenu from '@components/ui/BurgerMenu/BurgerMenu';
 import BurgerMenuButton from '@components/ui/BurgerMenuButton/BurgerMenuButton';
 import routes from '@constants/routes';
 import images from '@constants/images';
+import breakpoints from '@constants/breakpoints';
 
 const Header = () => {
   const currentWindowWidth = useWindowWidth();
@@ -13,7 +14,7 @@ const Header = () => {
   const [isBurgerMenuOpened, setIsBurgerMenuOpened] = useState(false);
 
   useEffect(() => {
-    if (currentWindowWidth >= 550) {
+    if (currentWindowWidth >= breakpoints.burgerMenuAppearance) {
       setIsBurgerMenuOpened(false);
     }
   }, [currentWindowWidth]);
@@ -39,7 +40,7 @@ const Header = () => {
             className={styles.museum_logo}
           />
         </div>
-        {currentWindowWidth >= 550 && (
+        {currentWindowWidth >= breakpoints.burgerMenuAppearance && (
           <nav>
             <ul className={styles.list}>
               <li>
@@ -57,7 +58,7 @@ const Header = () => {
             </ul>
           </nav>
         )}
-        {currentWindowWidth < 550 && (
+        {currentWindowWidth < breakpoints.burgerMenuAppearance && (
           <BurgerMenuButton
             isBurgerMenuOpened={isBurgerMenuOpened}
             handleOpenBurgerMenu={handleOpenBurgerMenu}

@@ -1,10 +1,12 @@
 import { IGetParams } from '@services/ArtworksAPI';
 
-export const defaultSearchValues: IGetParams = {
+const defaultSearchValues: IGetParams = {
   page: 1,
   limit: 3,
   searchQuery: '',
   sort: '',
 };
 
-export const maxPageNumber = 10000;
+const debounceInterval = 500;
+
+export { defaultSearchValues, debounceInterval };

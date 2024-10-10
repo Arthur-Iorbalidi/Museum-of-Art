@@ -1,4 +1,4 @@
-export const sortOptions = [
+const sortOptions = [
   {
     id: 1,
     tittle: 'Updated at',
@@ -15,3 +15,5 @@ export const sortOptions = [
     value: 'date_end',
   },
 ];
+
+export default sortOptions;

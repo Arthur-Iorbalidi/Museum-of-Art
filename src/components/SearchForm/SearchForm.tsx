@@ -5,6 +5,7 @@ import getValidationSchema from './validationSchema';
 import useDebounce from '@hooks/useDebounce';
 import { useEffect, useState } from 'react';
 import images from '@constants/images';
+import { debounceInterval } from '@constants/defaultSearchValues';
 
 interface IFormFields {
   query: string;
@@ -35,7 +36,7 @@ const SearchForm = ({ handleChangeQuery, currentSearchValue }: IProps) => {
 
   const queryValue = watch('query');
 
-  const debouncedQuery = useDebounce(queryValue, 500);
+  const debouncedQuery = useDebounce(queryValue, debounceInterval);
 
   useEffect(() => {
     if (isValid && debouncedQuery !== lastQuery) {
