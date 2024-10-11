@@ -12,7 +12,7 @@
   border: global.$secondaryBorder;
   border-radius: global.$primaryBorderRadius;
   background-color: white;
-  font-size: 1.6rem;
+  font-size: global.$fontSizeBase;
   cursor: pointer;
   outline: none;
 }

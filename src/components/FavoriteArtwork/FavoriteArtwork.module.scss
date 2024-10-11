@@ -39,13 +39,12 @@
 
 .tittle {
   color: global.$primaryColor;
-  font-size: 1.8rem;
+  font-size: global.$fontSizeCaptionSmall;
   font-weight: 500;
 }
 
 .author {
   color: global.$secondaryColor;
-  font-size: 1.6rem;
 }
 
 .favorite_btn_wrapper {

@@ -21,7 +21,7 @@
   height: 100%;
   border: none;
   outline: none;
-  font-size: 2rem;
+  font-size: global.$fontSizeCaptionMedium;
   flex: 1;
 }
 
@@ -30,7 +30,6 @@
 }
 
 .error_message {
-  font-size: 1.6rem;
   color: global.$errorsColor;
   text-align: center;
 }
