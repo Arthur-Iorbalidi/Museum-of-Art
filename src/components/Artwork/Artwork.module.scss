@@ -1,7 +1,6 @@
 @use '@constants/global.scss' as global;
 
 .artwork {
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -14,8 +13,6 @@
 }
 
 .info {
-  margin: 0 auto;
-  width: 100%;
   background-color: global.$secondaryBackgroundColor;
   border: global.$primaryBorder;
   padding: global.$primaryPadding;
@@ -50,7 +47,7 @@
 @media (max-width: 650px) {
   .artwork:last-child {
     grid-column: auto;
-    width: 100%;
+    width: auto;
   }
 }
 

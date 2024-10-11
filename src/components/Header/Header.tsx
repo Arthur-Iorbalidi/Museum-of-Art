@@ -4,7 +4,7 @@ import breakpoints from '@constants/breakpoints';
 import images from '@constants/images';
 import routes from '@constants/routes';
 import useWindowWidth from '@hooks/useWindowWidth';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import styles from './Header.module.scss';
@@ -27,9 +27,9 @@ const Header = () => {
     toggleBurgerMenu();
   };
 
-  const toggleBurgerMenu = () => {
+  const toggleBurgerMenu = useCallback(() => {
     setIsBurgerMenuOpened((prev) => !prev);
-  };
+  }, []);
 
   return (
     <header className={styles.header}>

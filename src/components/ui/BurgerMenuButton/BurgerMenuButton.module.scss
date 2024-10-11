@@ -11,7 +11,7 @@
   align-items: center;
   justify-content: center;
   border: global.$thirdBorder;
-  border-radius: 50%;
+  border-radius: global.$thirdBorderRadius;
   .burger_line {
     width: 20px;
     height: 2px;

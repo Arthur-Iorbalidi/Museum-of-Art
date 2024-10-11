@@ -1,6 +1,7 @@
 import images from '@constants/images';
 import routes from '@constants/routes';
-import { useEffect, useRef } from 'react';
+import useClickOutside from '@hooks/useClickOutside';
+import { memo, useCallback, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 import styles from './BurgerMenu.module.scss';
@@ -13,23 +14,11 @@ interface IProps {
 const BurgerMenu = ({ toggleBurgerMenu, isBurgerMenuOpened }: IProps) => {
   const menuRef = useRef<HTMLDivElement>(null);
 
-  const handleClickOutside = (event: MouseEvent) => {
-    if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-      toggleBurgerMenu();
-    }
-  };
+  const handleClickOutside = useCallback(() => {
+    toggleBurgerMenu();
+  }, [toggleBurgerMenu]);
 
-  useEffect(() => {
-    if (isBurgerMenuOpened) {
-      document.addEventListener('click', handleClickOutside);
-    } else {
-      document.removeEventListener('click', handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener('click', handleClickOutside);
-    };
-  }, [isBurgerMenuOpened]);
+  useClickOutside(menuRef, handleClickOutside);
 
   return (
     <>
@@ -63,4 +52,4 @@ const BurgerMenu = ({ toggleBurgerMenu, isBurgerMenuOpened }: IProps) => {
   );
 };
 
-export default BurgerMenu;
+export default memo(BurgerMenu);

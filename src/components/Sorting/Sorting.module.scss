@@ -1,13 +1,14 @@
 @use '@constants/global.scss' as global;
 
 .select_wrapper {
+  display: flex;
   margin: 0 auto;
   max-width: 200px;
 }
 
 .select {
+  flex-grow: 1;
   margin-top: 25px;
-  width: 100%;
   padding: global.$thirdPadding;
   border: global.$secondaryBorder;
   border-radius: global.$primaryBorderRadius;

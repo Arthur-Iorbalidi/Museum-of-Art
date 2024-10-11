@@ -1,7 +1,6 @@
 @use '@constants/global.scss' as global;
 
 .favorite_artwork {
-  width: 100%;
   display: flex;
   justify-content: space-between;
   background-color: global.$secondaryBackgroundColor;
@@ -24,8 +23,6 @@
 
 .info {
   flex: 1;
-  flex-shrink: 1;
-  width: 100%;
   padding: global.$primaryPadding;
   display: flex;
   flex-direction: column;
