@@ -22,13 +22,13 @@
   left: 20px;
   width: 35px;
   height: 35px;
-  background-color: rgb(240, 240, 240);
-  border-radius: 50%;
+  background-color: global.$notActiveBackgroundColor;
+  border-radius: global.$thirdBorderRadius;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid rgb(170, 170, 170);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border: global.$fourthBorder;
+  box-shadow: global.$primaryBoxShadow;
 }
 
 .img_wrapper {

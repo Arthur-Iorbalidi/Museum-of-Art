@@ -5,10 +5,10 @@
   top: 80%;
   right: 5px;
   position: absolute;
-  padding: 20px;
+  padding: global.$primaryPadding;
   background-color: #343333;
-  border: 1px solid rgb(170, 170, 170);
-  border-radius: 15px;
+  border: global.$fourthBorder;
+  border-radius: global.$secondaryBorderRadius;
 
   .burger_menu_list {
     display: flex;

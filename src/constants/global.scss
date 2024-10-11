@@ -1,8 +1,34 @@
+//Color
 $primaryColor: #393939;
 $secondaryColor: #E0A449;
 $thirdColor: #F17900;
 $lightColor: #FFF;
 $errorsColor: #ff6363;
 
+//BackgroundColor
 $primaryBackgroundColor: #FAFAFA;
 $secondaryBackgroundColor: #FFF;
+$notActiveBackgroundColor: #f0f0f0;
+$activeBackgroundColor: #ffc3874d;
+$secondaryActiveBackgroundColor: #F17900;
+$formBackgroundColor: #3939390d;
+
+//Box shadow
+$primaryBoxShadow: 0 0 10px #00000033;
+$secondaryBoxShadow: 0 0 5px $secondaryColor;
+
+//Border
+$primaryBorder: 1px solid #F0F1F1;
+$secondaryBorder: 2px solid $secondaryColor;
+$thirdBorder: 2px solid $primaryBackgroundColor;
+$fourthBorder: 2px solid #aaaaaa;
+
+//BorderRadius
+$primaryBorderRadius: 4px;
+$secondaryBorderRadius: 16px;
+$thirdBorderRadius: 50%;
+
+//Padding
+$primaryPadding: 20px;
+$secondaryPadding: 16px;
+$thirdPadding: 10px;

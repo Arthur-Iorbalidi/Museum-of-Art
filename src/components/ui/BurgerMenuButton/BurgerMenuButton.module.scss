@@ -10,7 +10,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 2px solid global.$primaryBackgroundColor;
+  border: global.$thirdBorder;
   border-radius: 50%;
   .burger_line {
     width: 20px;

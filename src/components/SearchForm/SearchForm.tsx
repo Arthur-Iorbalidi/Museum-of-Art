@@ -60,7 +60,7 @@ const SearchForm = ({ handleChangeQuery, currentSearchValue }: IProps) => {
           placeholder="Search..."
           className={styles.query_field}
         />
-        <button type="submit">
+        <button className={styles.submit_btn} type="submit">
           <img src={images.searchIcon} alt="search" />
         </button>
       </div>

@@ -4,18 +4,18 @@
   width: 30px;
   height: 30px;
   flex-shrink: 0;
-  border-radius: 4px;
+  border-radius: global.$primaryBorderRadius;
 }
 
 .active {
-  background: #F17900;
+  background: global.$secondaryActiveBackgroundColor;
   color: global.$lightColor;
   cursor: auto;
 }
 
 @media(hover:hover) {
   .pagination_item:hover {
-    box-shadow: 0 0 5px global.$secondaryColor;
+    box-shadow: global.$secondaryBoxShadow;
   }
   .active:hover {
     box-shadow: none;

@@ -4,9 +4,9 @@
   margin: 0 auto;
   margin-top: 72px;
   max-width: 762px;
-  padding: 16px;
-  border-radius: 16px;
-  background: rgba(57, 57, 57, 0.05);
+  padding: global.$secondaryPadding;
+  border-radius: global.$secondaryBorderRadius;
+  background: global.$formBackgroundColor;
 }
 
 .form_field {
@@ -23,6 +23,10 @@
   outline: none;
   font-size: 2rem;
   flex: 1;
+}
+
+.submit_btn {
+  display: flex;
 }
 
 .error_message {
