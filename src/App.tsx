@@ -1,13 +1,15 @@
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import './App.scss';
-import HomePage from './pages/HomePage/HomePage';
-import FavoritesPage from '@pages/FavoritesPage/FavoritesPage';
-import DetailedPage from '@pages/DetailedPage/DetailedPage';
-import Header from '@components/Header/Header';
-import Footer from '@components/Footer/Footer';
-import { SearchParamsProvider } from '@context/searchParamsContext';
+
 import ErrorBoundary from '@components/ErrorBoundary/ErrorBoundary';
+import Footer from '@components/Footer/Footer';
+import Header from '@components/Header/Header';
 import routes from '@constants/routes';
+import { SearchParamsProvider } from '@context/searchParamsContext';
+import DetailedPage from '@pages/DetailedPage/DetailedPage';
+import FavoritesPage from '@pages/FavoritesPage/FavoritesPage';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+
+import HomePage from './pages/HomePage/HomePage';
 
 function App() {
   return (

@@ -1,6 +1,7 @@
-import images from '@constants/images';
-import styles from './Footer.module.scss';
 import authorInfo from '@constants/authorInfo';
+import images from '@constants/images';
+
+import styles from './Footer.module.scss';
 
 const Footer = () => {
   return (

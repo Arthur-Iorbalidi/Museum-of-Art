@@ -1,12 +1,13 @@
-import styles from './Header.module.scss';
-import { Link } from 'react-router-dom';
-import useWindowWidth from '@hooks/useWindowWidth';
-import { useEffect, useState } from 'react';
 import BurgerMenu from '@components/ui/BurgerMenu/BurgerMenu';
 import BurgerMenuButton from '@components/ui/BurgerMenuButton/BurgerMenuButton';
-import routes from '@constants/routes';
-import images from '@constants/images';
 import breakpoints from '@constants/breakpoints';
+import images from '@constants/images';
+import routes from '@constants/routes';
+import useWindowWidth from '@hooks/useWindowWidth';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+
+import styles from './Header.module.scss';
 
 const Header = () => {
   const currentWindowWidth = useWindowWidth();

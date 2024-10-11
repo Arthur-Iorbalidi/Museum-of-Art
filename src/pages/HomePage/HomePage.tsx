@@ -1,11 +1,12 @@
-import artworksAPI, { IArtworksResponse } from '@services/ArtworksAPI';
-import SearchForm from '@components/SearchForm/SearchForm';
-import styles from './HomePage.module.scss';
-import { useCallback, useEffect, useState } from 'react';
 import Artworks from '@components/Artworks/Artworks';
 import Pagination from '@components/Pagination/Pagination';
+import SearchForm from '@components/SearchForm/SearchForm';
 import Sorting from '@components/Sorting/Sorting';
 import { useSearchParamsContext } from '@context/searchParamsContext';
+import artworksAPI, { IArtworksResponse } from '@services/ArtworksAPI';
+import { useCallback, useEffect, useState } from 'react';
+
+import styles from './HomePage.module.scss';
 
 const HomePage = () => {
   const [artworks, setArtworks] = useState<IArtworksResponse | null>(null);

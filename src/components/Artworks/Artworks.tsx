@@ -1,7 +1,8 @@
-import { IArtwork } from '@services/ArtworksAPI';
-import styles from './Artworks.module.scss';
-import Loader from '@components/ui/Loader/Loader';
 import Artwork from '@components/Artwork/Artwork';
+import Loader from '@components/ui/Loader/Loader';
+import { IArtwork } from '@services/ArtworksAPI';
+
+import styles from './Artworks.module.scss';
 
 interface IProps {
   artworks: IArtwork[] | undefined;

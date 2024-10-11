@@ -1,8 +1,8 @@
-import { render, screen, fireEvent } from '@testing-library/react';
 import Artwork from '@components/Artwork/Artwork';
 import favouritesAPI from '@services/FavouritesAPI';
-import { MemoryRouter } from 'react-router-dom';
+import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
+import { MemoryRouter } from 'react-router-dom';
 
 jest.mock('@services/FavouritesAPI');
 jest.mock(

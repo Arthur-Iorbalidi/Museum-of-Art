@@ -1,6 +1,6 @@
-import { render, screen, fireEvent } from '@testing-library/react';
 import Pagination from '@components/Pagination/Pagination';
 import { IPagination } from '@services/ArtworksAPI';
+import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
 
 describe('Pagination Component', () => {

@@ -1,4 +1,5 @@
 import sortOptions from '@constants/sortOptions';
+
 import styles from './Sorting.module.scss';
 
 interface IProps {

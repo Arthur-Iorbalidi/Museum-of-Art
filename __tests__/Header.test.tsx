@@ -1,8 +1,8 @@
-import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom'; // Оборачиваем в Router для использования Link
 import Header from '@components/Header/Header';
 import useWindowWidth from '@hooks/useWindowWidth';
+import { fireEvent, render, screen } from '@testing-library/react';
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom'; // Оборачиваем в Router для использования Link
 
 jest.mock('@hooks/useWindowWidth');
 

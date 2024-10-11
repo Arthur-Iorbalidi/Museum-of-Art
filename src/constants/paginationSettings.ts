@@ -8,4 +8,4 @@ const arrowsGaps = {
 const firstPageNumber = 1;
 const maxPageNumber = 10000;
 
-export { paginationGaps, arrowsGaps, firstPageNumber, maxPageNumber };
+export { arrowsGaps, firstPageNumber, maxPageNumber, paginationGaps };

@@ -1,11 +1,12 @@
-import styles from './SearchForm.module.scss';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { debounceInterval } from '@constants/defaultSearchValues';
+import images from '@constants/images';
 import { yupResolver } from '@hookform/resolvers/yup';
-import getValidationSchema from './validationSchema';
 import useDebounce from '@hooks/useDebounce';
 import { useEffect, useState } from 'react';
-import images from '@constants/images';
-import { debounceInterval } from '@constants/defaultSearchValues';
+import { SubmitHandler, useForm } from 'react-hook-form';
+
+import styles from './SearchForm.module.scss';
+import getValidationSchema from './validationSchema';
 
 interface IFormFields {
   query: string;

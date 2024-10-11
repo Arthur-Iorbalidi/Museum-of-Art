@@ -1,4 +1,5 @@
 import images from '@constants/images';
+
 import styles from './Loader.module.scss';
 
 const Loader = () => {

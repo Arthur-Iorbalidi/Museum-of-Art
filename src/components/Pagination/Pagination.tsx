@@ -1,13 +1,14 @@
-import styles from './Pagination.module.scss';
+import PaginationItem from '@components/PaginationItem/PaginationItem';
+import images from '@constants/images';
 import {
   arrowsGaps,
   firstPageNumber,
   maxPageNumber,
   paginationGaps,
 } from '@constants/paginationSettings';
-import images from '@constants/images';
 import { IPagination } from '@services/ArtworksAPI';
-import PaginationItem from '@components/PaginationItem/PaginationItem';
+
+import styles from './Pagination.module.scss';
 
 interface IProps {
   pagination: IPagination;

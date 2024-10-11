@@ -1,4 +1,5 @@
 import images from '@constants/images';
+
 import styles from './FavoriteButton.module.scss';
 
 interface IProps {

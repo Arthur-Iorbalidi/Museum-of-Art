@@ -9,4 +9,4 @@ const defaultSearchValues: IGetParams = {
 
 const debounceInterval = 500;
 
-export { defaultSearchValues, debounceInterval };
+export { debounceInterval, defaultSearchValues };

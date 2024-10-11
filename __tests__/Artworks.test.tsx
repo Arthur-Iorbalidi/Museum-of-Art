@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import { render, screen } from '@testing-library/react';
 import Artworks from '@components/Artworks/Artworks';
 import { IArtwork } from '@services/ArtworksAPI';
+import { render, screen } from '@testing-library/react';
 import React from 'react';
 
 jest.mock('@components/Artwork/Artwork', () => {

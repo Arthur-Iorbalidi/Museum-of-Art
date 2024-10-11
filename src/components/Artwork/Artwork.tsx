@@ -1,10 +1,11 @@
-import styles from './Artwork.module.scss';
-import { IArtwork } from '@services/ArtworksAPI';
-import { Link } from 'react-router-dom';
-import favouritesAPI from '@services/FavouritesAPI';
-import { useState } from 'react';
 import FavoriteButton from '@components/ui/FavoriteButton/FavoriteButton';
 import images from '@constants/images';
+import { IArtwork } from '@services/ArtworksAPI';
+import favouritesAPI from '@services/FavouritesAPI';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+
+import styles from './Artwork.module.scss';
 
 interface IProps {
   artwork: IArtwork;

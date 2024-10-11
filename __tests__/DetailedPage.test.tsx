@@ -1,9 +1,9 @@
-import { render, screen, waitFor } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
 import DetailedPage from '@pages/DetailedPage/DetailedPage';
 import artworksAPI from '@services/ArtworksAPI';
 import favouritesAPI from '@services/FavouritesAPI';
+import { render, screen, waitFor } from '@testing-library/react';
 import React from 'react';
+import { MemoryRouter } from 'react-router-dom';
 
 jest.mock('@services/ArtworksAPI');
 jest.mock('@services/FavouritesAPI');

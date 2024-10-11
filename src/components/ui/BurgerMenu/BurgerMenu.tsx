@@ -1,8 +1,9 @@
-import { Link } from 'react-router-dom';
-import styles from './BurgerMenu.module.scss';
-import { useRef, useEffect } from 'react';
-import routes from '@constants/routes';
 import images from '@constants/images';
+import routes from '@constants/routes';
+import { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
+
+import styles from './BurgerMenu.module.scss';
 
 interface IProps {
   toggleBurgerMenu: () => void;
