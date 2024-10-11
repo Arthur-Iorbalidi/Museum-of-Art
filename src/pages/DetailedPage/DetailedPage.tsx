@@ -42,12 +42,16 @@ const DetailedPage = () => {
     }
   };
 
+  const goBack = () => {
+    navigate(-1);
+  };
+
   return (
     <section className={styles.detailed_page}>
       {isLoading && <Loader />}
       {artwork && (
         <div className={styles.wrapper}>
-          <button className={styles.back_btn} onClick={() => navigate(-1)}>
+          <button className={styles.back_btn} onClick={goBack}>
             <img src={images.goBackIcon} alt="go back" />
           </button>
           <div className={styles.img_wrapper}>

@@ -21,14 +21,19 @@ const Pagination = ({ pagination, handleChangePage }: IProps) => {
       ? pagination.total_pages
       : maxPageNumber;
 
+  const handlePrevClick = () => {
+    handleChangePage(arrowsGaps.back);
+  };
+
+  const handleNextClick = () => {
+    handleChangePage(arrowsGaps.forward);
+  };
+
   return (
     <div className={styles.pagination}>
       <div className={styles.wrapper}>
         {pagination.current_page > firstPageNumber && (
-          <button
-            className={styles.previos_btn}
-            onClick={() => handleChangePage(arrowsGaps.back)}
-          >
+          <button className={styles.previos_btn} onClick={handlePrevClick}>
             <img src={images.arrowBack} alt="previos" />
           </button>
         )}
@@ -47,10 +52,7 @@ const Pagination = ({ pagination, handleChangePage }: IProps) => {
           return null;
         })}
         {pagination.current_page < lastPageNumber && (
-          <button
-            className={styles.next_btn}
-            onClick={() => handleChangePage(arrowsGaps.forward)}
-          >
+          <button className={styles.next_btn} onClick={handleNextClick}>
             <img src={images.arrowForward} alt="next" />
           </button>
         )}
