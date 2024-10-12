@@ -7,6 +7,7 @@ import {
   paginationGaps,
 } from '@constants/paginationSettings';
 import { IPagination } from '@services/ArtworksAPI';
+import { memo } from 'react';
 
 import styles from './Pagination.module.scss';
 
@@ -61,4 +62,4 @@ const Pagination = ({ pagination, handleChangePage }: IProps) => {
   );
 };
 
-export default Pagination;
+export default memo(Pagination);

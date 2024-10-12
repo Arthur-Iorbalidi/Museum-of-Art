@@ -22,12 +22,12 @@ const HomePage = () => {
     })();
   }, [params]);
 
-  const handleChangePage = (count: number) => {
+  const handleChangePage = useCallback((count: number) => {
     setParams((prevParams) => ({
       ...prevParams,
       page: prevParams.page + count,
     }));
-  };
+  }, []);
 
   const handleChangeQuery = useCallback((query: string) => {
     setParams((prevParams) => ({

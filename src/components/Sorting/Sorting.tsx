@@ -1,4 +1,5 @@
 import sortOptions from '@constants/sortOptions';
+import { memo } from 'react';
 
 import styles from './Sorting.module.scss';
 
@@ -24,4 +25,4 @@ const Sorting = ({ handleChangeSorting }: IProps) => {
   );
 };
 
-export default Sorting;
+export default memo(Sorting);

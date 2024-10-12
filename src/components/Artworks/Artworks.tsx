@@ -1,6 +1,7 @@
 import Artwork from '@components/Artwork/Artwork';
 import Loader from '@components/ui/Loader/Loader';
 import { IArtwork } from '@services/ArtworksAPI';
+import { memo } from 'react';
 
 import styles from './Artworks.module.scss';
 
@@ -20,4 +21,4 @@ const Artworks = ({ artworks, isLoading }: IProps) => {
   );
 };
 
-export default Artworks;
+export default memo(Artworks);

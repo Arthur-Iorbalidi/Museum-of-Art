@@ -2,7 +2,7 @@ import { debounceInterval } from '@constants/defaultSearchValues';
 import images from '@constants/images';
 import { yupResolver } from '@hookform/resolvers/yup';
 import useDebounce from '@hooks/useDebounce';
-import { useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import styles from './SearchForm.module.scss';
@@ -69,4 +69,4 @@ const SearchForm = ({ handleChangeQuery, currentSearchValue }: IProps) => {
   );
 };
 
-export default SearchForm;
+export default memo(SearchForm);
