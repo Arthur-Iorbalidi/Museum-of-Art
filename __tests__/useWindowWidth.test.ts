@@ -1,5 +1,5 @@
-import { act, renderHook } from '@testing-library/react';
 import useWindowWidth from '@hooks/useWindowWidth';
+import { act, renderHook } from '@testing-library/react';
 
 describe('useWindowWidth', () => {
   it('should initialize with the current window width', () => {

@@ -1,85 +1,74 @@
-import styles from './Header.module.scss';
-import museumLogo from '@assets/icons/museum-logo-dark.svg';
-import { Link } from 'react-router-dom';
-import bookmark from '@assets/icons/bookmark.svg';
-import home from '@assets/icons/home.svg';
+import BurgerMenu from '@components/ui/BurgerMenu/BurgerMenu';
+import BurgerMenuButton from '@components/ui/BurgerMenuButton/BurgerMenuButton';
+import breakpoints from '@constants/breakpoints';
+import images from '@constants/images';
+import routes from '@constants/routes';
 import useWindowWidth from '@hooks/useWindowWidth';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+
+import styles from './Header.module.scss';
 
 const Header = () => {
   const currentWindowWidth = useWindowWidth();
 
   const [isBurgerMenuOpened, setIsBurgerMenuOpened] = useState(false);
 
-  const handleOpenBurgerMenu = () => {
-    setIsBurgerMenuOpened((prev) => !prev);
-  };
-
   useEffect(() => {
-    if (currentWindowWidth >= 550) {
+    if (currentWindowWidth >= breakpoints.burgerMenuAppearance) {
       setIsBurgerMenuOpened(false);
     }
   }, [currentWindowWidth]);
+
+  const handleOpenBurgerMenu = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+  ) => {
+    event.stopPropagation();
+    toggleBurgerMenu();
+  };
+
+  const toggleBurgerMenu = useCallback(() => {
+    setIsBurgerMenuOpened((prev) => !prev);
+  }, []);
 
   return (
     <header className={styles.header}>
       <div className={styles.wrapper}>
         <div className={styles.img_wrapper}>
-          <img src={museumLogo} alt="logo" className={styles.museum_logo} />
+          <img
+            src={images.museumLogoLight}
+            alt="logo"
+            className={styles.museum_logo}
+          />
         </div>
-        {currentWindowWidth >= 550 && (
+        {currentWindowWidth >= breakpoints.burgerMenuAppearance && (
           <nav>
             <ul className={styles.list}>
               <li>
-                <Link to="/home" className={styles.link}>
-                  <img src={home} alt="" />
+                <Link to={routes.home} className={styles.link}>
+                  <img src={images.home} alt="home icon" />
                   <span className={styles.link_text}>Home</span>
                 </Link>
               </li>
               <li>
-                <Link to="/favorites" className={styles.link}>
-                  <img src={bookmark} alt="" />
+                <Link to={routes.favorites} className={styles.link}>
+                  <img src={images.bookmark} alt="favorites icon" />
                   <span className={styles.link_text}>Your Favorites</span>
                 </Link>
               </li>
             </ul>
           </nav>
         )}
-        {currentWindowWidth < 550 && (
-          <button
-            className={`${styles.burger_btn} ${isBurgerMenuOpened ? styles.active : ''}`}
-            onClick={handleOpenBurgerMenu}
-          >
-            <div className={styles.burger_line}></div>
-            <div className={styles.burger_line}></div>
-          </button>
+        {currentWindowWidth < breakpoints.burgerMenuAppearance && (
+          <BurgerMenuButton
+            isBurgerMenuOpened={isBurgerMenuOpened}
+            handleOpenBurgerMenu={handleOpenBurgerMenu}
+          />
         )}
-        {isBurgerMenuOpened && (
-          <nav className={styles.burger_menu}>
-            <ul className={styles.burger_menu_list}>
-              <li>
-                <Link
-                  to="/home"
-                  className={styles.link}
-                  onClick={() => setIsBurgerMenuOpened(false)}
-                >
-                  <img src={home} alt="" />
-                  <span className={styles.link_text}>Home</span>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/favorites"
-                  className={styles.link}
-                  onClick={() => setIsBurgerMenuOpened(false)}
-                >
-                  <img src={bookmark} alt="" />
-                  <span className={styles.link_text}>Your Favorites</span>
-                </Link>
-              </li>
-            </ul>
-          </nav>
-        )}
+        <BurgerMenu
+          toggleBurgerMenu={toggleBurgerMenu}
+          isBurgerMenuOpened={isBurgerMenuOpened}
+        />
       </div>
     </header>
   );

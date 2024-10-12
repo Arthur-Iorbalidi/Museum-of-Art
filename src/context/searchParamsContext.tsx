@@ -1,5 +1,5 @@
 import { defaultSearchValues } from '@constants/defaultSearchValues';
-import { IGetParams } from '@services/ArtworksAPI';
+import { IGetParams } from '@localTypes/ArtworksAPITypes';
 import { createContext, useContext, useState } from 'react';
 
 interface IProps {

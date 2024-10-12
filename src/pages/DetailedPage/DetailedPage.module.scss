@@ -7,6 +7,7 @@
 }
 
 .wrapper {
+  width: 100%;
   position: relative;
   max-width: 1300px;
   padding: 120px 20px;
@@ -22,13 +23,13 @@
   left: 20px;
   width: 35px;
   height: 35px;
-  background-color: rgb(240, 240, 240);
-  border-radius: 50%;
+  background-color: global.$notActiveBackgroundColor;
+  border-radius: global.$thirdBorderRadius;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid rgb(170, 170, 170);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border: global.$fourthBorder;
+  box-shadow: global.$primaryBoxShadow;
 }
 
 .img_wrapper {
@@ -54,18 +55,18 @@
   gap: 30px;
 
   .tittle {
-    font-size: 3.2rem;
+    font-size: 32px;
   }
   
   .author_short {
     margin-top: 16px;
     color: global.$secondaryColor;
-    font-size: 2.4rem;
+    font-size: 24px;
   }
   
   .date {
     margin-top: 8px;
-    font-size: 1.6rem;
+    font-size: 16px;
     font-weight: 700;
   }
 }
@@ -76,13 +77,13 @@
   gap: 16px;
 
   .overview_tittle {
-    font-size: 3.2rem;
+    font-size: 32px;
     font-weight: 400;
   }
 
   .overview_item {
     color: global.$secondaryColor;
-    font-size: 1.6rem;
+    font-size: 16px;
   }
 
   .overview_item_value {

@@ -1,3 +1,5 @@
+@use '@constants/global.scss' as global;
+
 .error_wrapper {
   padding: 20px;
   flex: 1;
@@ -9,10 +11,10 @@
 
 .tittle {
   text-align: center;
-  font-size: 3rem;
+  font-size: global.$fontSizeSubheading;
 }
 
 .subtittle {
   text-align: center;
-  font-size: 2rem;
+  font-size: global.$fontSizeCaptionMedium;
 }

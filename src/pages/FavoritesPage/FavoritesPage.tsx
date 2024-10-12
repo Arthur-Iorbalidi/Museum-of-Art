@@ -1,9 +1,12 @@
-import artworksAPI, { IFavoritesArtworksResponse } from '@services/ArtworksAPI';
-import { useState, useEffect } from 'react';
-import styles from './FavoritesPage.module.scss';
+import Artwork, { Appearance } from '@components/Artwork/Artwork';
+import Artworks, { LayoutType } from '@components/Artworks/Artworks';
+import images from '@constants/images';
+import { emptyMessage } from '@constants/messages';
+import { IFavoritesArtworksResponse } from '@localTypes/ArtworksAPITypes';
 import favouritesAPI from '@services/FavouritesAPI';
-import FavoritesArtworks from './components/FavoritesArtworks/FavoritesArtworks';
-import favoriteBookmark from '@assets/icons/favorite-bookmark.svg';
+import { useCallback, useEffect, useState } from 'react';
+
+import styles from './FavoritesPage.module.scss';
 
 const FavoritesPage = () => {
   const [favoriteArtworks, setFavoriteArtworks] =
@@ -13,15 +16,13 @@ const FavoritesPage = () => {
   useEffect(() => {
     (async () => {
       setIsLoading(true);
-      const data = await artworksAPI.getArtworksByIds(
-        favouritesAPI.getFavorites(),
-      );
+      const data = await favouritesAPI.getFavoritesArtworks();
       setFavoriteArtworks(data);
       setIsLoading(false);
     })();
   }, []);
 
-  const handleRemove = (id: number) => {
+  const handleRemove = useCallback((id: number) => {
     setFavoriteArtworks((prev) => {
       return {
         ...prev!,
@@ -30,7 +31,7 @@ const FavoritesPage = () => {
     });
 
     favouritesAPI.removeFromFavourites(id);
-  };
+  }, []);
 
   return (
     <section className={styles.favorites_page}>
@@ -40,7 +41,7 @@ const FavoritesPage = () => {
           <span>
             <img
               className={styles.bookmark_icon}
-              src={favoriteBookmark}
+              src={images.favoriteBookmark}
               alt=""
             />{' '}
             Favorites
@@ -49,11 +50,22 @@ const FavoritesPage = () => {
         <h2 className={styles.subtittle}>
           Saved by you <span>Your favorites list</span>
         </h2>
-        <FavoritesArtworks
+        <Artworks
           isLoading={isLoading}
-          favoriteArtworks={favoriteArtworks?.data}
-          handleRemove={handleRemove}
-        />
+          layoutType={LayoutType.twoColumns}
+          message={
+            favoriteArtworks?.data.length === 0 ? emptyMessage : undefined
+          }
+        >
+          {favoriteArtworks?.data.map((artwork) => (
+            <Artwork
+              artwork={artwork}
+              appearance={Appearance.horizontal}
+              handleRemove={handleRemove}
+              key={artwork.id}
+            ></Artwork>
+          ))}
+        </Artworks>
       </div>
     </section>
   );
