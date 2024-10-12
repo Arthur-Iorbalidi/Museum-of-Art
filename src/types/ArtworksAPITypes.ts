@@ -6,8 +6,9 @@ interface IGetParams {
 }
 
 interface IArtworksResponse {
-  pagination: IPagination;
-  data: IArtwork[];
+  pagination?: IPagination;
+  data?: IArtwork[];
+  error?: IError;
 }
 
 interface IFavoritesArtworksResponse {
@@ -15,7 +16,8 @@ interface IFavoritesArtworksResponse {
 }
 
 interface IArtworkResponse {
-  data: IArtwork;
+  data?: IArtwork;
+  error?: IError;
 }
 
 interface IPagination {
@@ -42,10 +44,22 @@ interface IArtwork {
   credit_line: string;
 }
 
+interface IError {
+  message: string;
+  response: {
+    data: {
+      detail?: string;
+      error: string;
+      status: number;
+    };
+  };
+}
+
 export type {
   IArtwork,
   IArtworkResponse,
   IArtworksResponse,
+  IError,
   IFavoritesArtworksResponse,
   IGetParams,
   IPagination,

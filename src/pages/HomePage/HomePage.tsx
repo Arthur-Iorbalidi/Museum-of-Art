@@ -3,7 +3,7 @@ import Artworks, { LayoutType } from '@components/Artworks/Artworks';
 import Pagination from '@components/Pagination/Pagination';
 import SearchForm from '@components/SearchForm/SearchForm';
 import Sorting from '@components/Sorting/Sorting';
-import { emptyMessage } from '@constants/defaultSearchValues';
+import { notFoundMessage } from '@constants/messages';
 import { useSearchParamsContext } from '@context/searchParamsContext';
 import { IArtworksResponse } from '@localTypes/ArtworksAPITypes';
 import artworksAPI from '@services/ArtworksAPI';
@@ -19,7 +19,7 @@ const HomePage = () => {
   useEffect(() => {
     (async () => {
       setIsLoading(true);
-      const data = await artworksAPI.get(params);
+      const data = await artworksAPI.getArtworks(params);
       setArtworks(data);
       setIsLoading(false);
     })();
@@ -49,14 +49,25 @@ const HomePage = () => {
   }, []);
 
   const memoizedArtworks = useMemo(() => {
-    return artworks?.data.map((artwork) => (
-      <Artwork
-        artwork={artwork}
-        appearance={Appearance.vertical}
-        key={artwork.id}
-      />
-    ));
+    if (artworks?.data) {
+      return artworks?.data.map((artwork) => (
+        <Artwork
+          artwork={artwork}
+          appearance={Appearance.vertical}
+          key={artwork.id}
+        />
+      ));
+    }
   }, [artworks?.data]);
+
+  const getMessage = () => {
+    if (artworks?.error) {
+      return artworks.error.message;
+    } else if (artworks?.data?.length === 0) {
+      return notFoundMessage;
+    }
+    return undefined;
+  };
 
   return (
     <section className={styles.home_page}>
@@ -75,11 +86,11 @@ const HomePage = () => {
         <Artworks
           isLoading={isLoading}
           layoutType={LayoutType.threeColumns}
-          message={artworks?.data.length === 0 ? emptyMessage : undefined}
+          message={getMessage()}
         >
           {memoizedArtworks}
         </Artworks>
-        {artworks && (
+        {artworks?.pagination && (
           <Pagination
             handleChangePage={handleChangePage}
             pagination={artworks.pagination}

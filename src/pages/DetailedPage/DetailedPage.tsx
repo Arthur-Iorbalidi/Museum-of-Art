@@ -1,5 +1,6 @@
 import FavoriteButton from '@components/ui/FavoriteButton/FavoriteButton';
 import Loader from '@components/ui/Loader/Loader';
+import Message from '@components/ui/Message/Message';
 import images from '@constants/images';
 import { IArtworkResponse } from '@localTypes/ArtworksAPITypes';
 import artworksAPI from '@services/ArtworksAPI';
@@ -26,6 +27,7 @@ const DetailedPage = () => {
       const data = await artworksAPI.getArtworkById(id!);
       setArtwork(data);
       setIsLoading(false);
+      console.log(data);
     })();
   }, []);
 
@@ -35,10 +37,10 @@ const DetailedPage = () => {
     event.preventDefault();
 
     if (isInFavorites) {
-      favouritesAPI.removeFromFavourites(artwork!.data.id);
+      favouritesAPI.removeFromFavourites(artwork!.data!.id);
       setIsInFavorites(false);
     } else {
-      favouritesAPI.addToFavourites(artwork!.data.id);
+      favouritesAPI.addToFavourites(artwork!.data!.id);
       setIsInFavorites(true);
     }
   };
@@ -50,7 +52,7 @@ const DetailedPage = () => {
   return (
     <section className={styles.detailed_page}>
       {isLoading && <Loader />}
-      {artwork && (
+      {artwork?.data && (
         <div className={styles.wrapper}>
           <button className={styles.back_btn} onClick={goBack}>
             <img src={images.goBackIcon} alt="go back" />
@@ -107,6 +109,15 @@ const DetailedPage = () => {
             </div>
           </div>
         </div>
+      )}
+      {artwork?.error && (
+        <Message
+          message={
+            artwork.error.response.data.detail
+              ? artwork.error.response.data.detail
+              : artwork.error.message
+          }
+        />
       )}
     </section>
   );

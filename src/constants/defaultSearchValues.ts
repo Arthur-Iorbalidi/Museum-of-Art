@@ -9,6 +9,4 @@ const defaultSearchValues: IGetParams = {
 
 const debounceInterval = 500;
 
-const emptyMessage = "It's empty here";
-
-export { debounceInterval, defaultSearchValues, emptyMessage };
+export { debounceInterval, defaultSearchValues };

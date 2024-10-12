@@ -54,7 +54,6 @@ const Artwork = ({
         return styles.vertical;
     }
   };
-  console.log('render Artwork');
 
   return (
     <Link

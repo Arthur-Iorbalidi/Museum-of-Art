@@ -1,7 +1,7 @@
 import Artwork, { Appearance } from '@components/Artwork/Artwork';
 import Artworks, { LayoutType } from '@components/Artworks/Artworks';
-import { emptyMessage } from '@constants/defaultSearchValues';
 import images from '@constants/images';
+import { emptyMessage } from '@constants/messages';
 import { IFavoritesArtworksResponse } from '@localTypes/ArtworksAPITypes';
 import favouritesAPI from '@services/FavouritesAPI';
 import { useCallback, useEffect, useState } from 'react';

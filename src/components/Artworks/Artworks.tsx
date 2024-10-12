@@ -1,4 +1,5 @@
 import Loader from '@components/ui/Loader/Loader';
+import Message from '@components/ui/Message/Message';
 import { memo, ReactNode } from 'react';
 
 import styles from './Artworks.module.scss';
@@ -31,12 +32,12 @@ const Artworks = ({
         return styles.threeColumns;
     }
   };
-  console.log('render');
+
   return (
     <div className={`${styles.artworks} ${classNameSwitcher()}`}>
       {isLoading && <Loader />}
       {children}
-      {message && <div className={styles.message}>{message}</div>}
+      {message && <Message message={message} />}
     </div>
   );
 };

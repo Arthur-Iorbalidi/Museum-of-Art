@@ -19,7 +19,10 @@ function App() {
         <main>
           <ErrorBoundary>
             <Routes>
-              <Route path="/" element={<Navigate to={routes.home} replace />} />
+              <Route
+                path="/*"
+                element={<Navigate to={routes.home} replace />}
+              />
               <Route path={routes.home} element={<HomePage />} />
               <Route path={routes.favorites} element={<FavoritesPage />} />
               <Route path={routes.detailed} element={<DetailedPage />} />

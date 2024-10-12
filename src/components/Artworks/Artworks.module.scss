@@ -7,16 +7,6 @@
   min-height: 300px;
 }
 
-.message {
-  width: 100%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: global.$fontSizeSubheading;
-  text-align: center;
-}
-
 .threeColumns {
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
