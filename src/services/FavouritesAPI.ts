@@ -1,3 +1,4 @@
+import artworksAPI from './ArtworksAPI';
 import storageAPI from './storageAPI';
 
 class FavouritesAPI {
@@ -11,7 +12,7 @@ class FavouritesAPI {
   }
 
   addToFavourites(id: number) {
-    const favorites: number[] = this.getFavorites();
+    const favorites: number[] = this.getFavoritesIds();
 
     const updatedFavorites = [...favorites, id];
 
@@ -19,7 +20,7 @@ class FavouritesAPI {
   }
 
   removeFromFavourites(id: number) {
-    const favorites: number[] = this.getFavorites();
+    const favorites: number[] = this.getFavoritesIds();
 
     const updatedFavorites = favorites.filter((item) => item !== id);
 
@@ -27,17 +28,23 @@ class FavouritesAPI {
   }
 
   isInFavorites(id: number) {
-    const favorites: number[] = this.getFavorites();
+    const favorites: number[] = this.getFavoritesIds();
 
     return favorites.includes(id);
   }
 
-  getFavorites(): number[] {
+  getFavoritesIds(): number[] {
     return JSON.parse(storageAPI.get(this.fieldName)!);
   }
 
   setFavorites(favorites: number[]) {
     storageAPI.set(this.fieldName, JSON.stringify(favorites));
+  }
+
+  async getFavoritesArtworks() {
+    const response = await artworksAPI.getArtworksByIds(this.getFavoritesIds());
+
+    return response;
   }
 }
 

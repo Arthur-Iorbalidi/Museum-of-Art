@@ -1,20 +1,47 @@
+@use '@constants/global.scss' as global;
+
 .artworks {
   position: relative;
   margin-top: 40px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
   min-height: 300px;
 }
 
+.message {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: global.$fontSizeSubheading;
+  text-align: center;
+}
+
+.threeColumns {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.twoColumns {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: min-content;
+  gap: 15px;
+}
+
 @media (max-width: 950px) {
-  .artworks {
+  .threeColumns {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
+@media (max-width: 800px) {
+  .twoColumns {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
 @media (max-width: 650px) {
-  .artworks {
+  .threeColumns {
     grid-template-columns: repeat(1, 1fr);
   }
 }

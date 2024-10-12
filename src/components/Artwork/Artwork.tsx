@@ -1,17 +1,29 @@
 import FavoriteButton from '@components/ui/FavoriteButton/FavoriteButton';
 import images from '@constants/images';
+import routes from '@constants/routes';
 import { IArtwork } from '@localTypes/ArtworksAPITypes';
 import favouritesAPI from '@services/FavouritesAPI';
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import styles from './Artwork.module.scss';
 
-interface IProps {
-  artwork: IArtwork;
+export enum Appearance {
+  vertical,
+  horizontal,
 }
 
-const Artwork = ({ artwork }: IProps) => {
+interface IProps {
+  artwork: IArtwork;
+  appearance?: Appearance;
+  handleRemove?: (id: number) => void;
+}
+
+const Artwork = ({
+  artwork,
+  handleRemove,
+  appearance = Appearance.vertical,
+}: IProps) => {
   const [isInFavorites, setIsInFavorites] = useState(
     favouritesAPI.isInFavorites(artwork.id),
   );
@@ -24,15 +36,32 @@ const Artwork = ({ artwork }: IProps) => {
     if (isInFavorites) {
       favouritesAPI.removeFromFavourites(artwork.id);
       setIsInFavorites(false);
+
+      handleRemove?.(artwork.id);
     } else {
       favouritesAPI.addToFavourites(artwork.id);
       setIsInFavorites(true);
     }
   };
 
+  const classNameSwitcher = () => {
+    switch (appearance) {
+      case Appearance.horizontal:
+        return styles.horizontal;
+      case Appearance.vertical:
+        return styles.vertical;
+      default:
+        return styles.vertical;
+    }
+  };
+  console.log('render Artwork');
+
   return (
-    <Link to={`${artwork.id}`} className={styles.artwork}>
-      <div>
+    <Link
+      to={`${routes.home}/${artwork.id}`}
+      className={`${styles.artwork} ${classNameSwitcher()}`}
+    >
+      <div className={styles.img_wrapper}>
         <img
           src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/843,/0/default.jpg`}
           alt="artwork"
@@ -47,13 +76,15 @@ const Artwork = ({ artwork }: IProps) => {
           <p className={styles.tittle}>{artwork.title}</p>
           <p className={styles.author}>{artwork.artist_title}</p>
         </div>
-        <FavoriteButton
-          isInFavorites={isInFavorites}
-          onClick={handleToggleFavorite}
-        />
+        <div className={styles.favorite_btn_wrapper}>
+          <FavoriteButton
+            isInFavorites={isInFavorites}
+            onClick={handleToggleFavorite}
+          />
+        </div>
       </div>
     </Link>
   );
 };
 
-export default Artwork;
+export default memo(Artwork);

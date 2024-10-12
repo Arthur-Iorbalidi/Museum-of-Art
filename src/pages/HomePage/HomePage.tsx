@@ -1,11 +1,13 @@
-import Artworks from '@components/Artworks/Artworks';
+import Artwork, { Appearance } from '@components/Artwork/Artwork';
+import Artworks, { LayoutType } from '@components/Artworks/Artworks';
 import Pagination from '@components/Pagination/Pagination';
 import SearchForm from '@components/SearchForm/SearchForm';
 import Sorting from '@components/Sorting/Sorting';
+import { emptyMessage } from '@constants/defaultSearchValues';
 import { useSearchParamsContext } from '@context/searchParamsContext';
 import { IArtworksResponse } from '@localTypes/ArtworksAPITypes';
 import artworksAPI from '@services/ArtworksAPI';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import styles from './HomePage.module.scss';
 
@@ -46,6 +48,16 @@ const HomePage = () => {
     }));
   }, []);
 
+  const memoizedArtworks = useMemo(() => {
+    return artworks?.data.map((artwork) => (
+      <Artwork
+        artwork={artwork}
+        appearance={Appearance.vertical}
+        key={artwork.id}
+      />
+    ));
+  }, [artworks?.data]);
+
   return (
     <section className={styles.home_page}>
       <div className={styles.wrapper}>
@@ -60,7 +72,13 @@ const HomePage = () => {
           <Sorting handleChangeSorting={handleChangeSorting} />
         )}
         <h2 className={styles.subtittle}>Artworks</h2>
-        <Artworks isLoading={isLoading} artworks={artworks?.data} />
+        <Artworks
+          isLoading={isLoading}
+          layoutType={LayoutType.threeColumns}
+          message={artworks?.data.length === 0 ? emptyMessage : undefined}
+        >
+          {memoizedArtworks}
+        </Artworks>
         {artworks && (
           <Pagination
             handleChangePage={handleChangePage}
