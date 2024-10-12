@@ -1,6 +1,6 @@
 import FavoriteButton from '@components/ui/FavoriteButton/FavoriteButton';
 import images from '@constants/images';
-import { IArtwork } from '@services/ArtworksAPI';
+import { IArtwork } from '@localTypes/ArtworksAPITypes';
 import favouritesAPI from '@services/FavouritesAPI';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';

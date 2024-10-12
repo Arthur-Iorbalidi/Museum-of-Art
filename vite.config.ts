@@ -14,6 +14,7 @@ export default defineConfig({
       '@constants': path.resolve(__dirname, './src/constants'),
       '@context': path.resolve(__dirname, './src/context'),
       '@hooks': path.resolve(__dirname, './src/hooks'),
+      '@localTypes': path.resolve(__dirname, './src/types'),
     },
   },
 });

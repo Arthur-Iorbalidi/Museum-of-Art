@@ -6,7 +6,7 @@ import {
   maxPageNumber,
   paginationGaps,
 } from '@constants/paginationSettings';
-import { IPagination } from '@services/ArtworksAPI';
+import { IPagination } from '@localTypes/ArtworksAPITypes';
 import { memo } from 'react';
 
 import styles from './Pagination.module.scss';

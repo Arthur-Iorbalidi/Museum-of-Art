@@ -1,48 +1,10 @@
+import {
+  IArtworkResponse,
+  IArtworksResponse,
+  IFavoritesArtworksResponse,
+  IGetParams,
+} from '@localTypes/ArtworksAPITypes';
 import axios from 'axios';
-
-export interface IGetParams {
-  page: number;
-  limit: number;
-  searchQuery: string;
-  sort: string;
-}
-
-export interface IArtworksResponse {
-  pagination: IPagination;
-  data: IArtwork[];
-}
-
-export interface IFavoritesArtworksResponse {
-  data: IArtwork[];
-}
-
-export interface IArtworkResponse {
-  data: IArtwork;
-}
-
-export interface IPagination {
-  total: number;
-  limit: number;
-  offset: number;
-  total_pages: number;
-  current_page: number;
-}
-
-export interface IArtwork {
-  _score: number;
-  date_start: number;
-  artist_display: string;
-  date_display: string;
-  date_end: number;
-  artist_title: string;
-  id: number;
-  image_id: string;
-  title: string;
-  place_of_origin: string;
-  dimensions: string;
-  style_title: string;
-  credit_line: string;
-}
 
 class ArtworksAPI {
   private baseUrl = 'https://api.artic.edu/api/v1/artworks';

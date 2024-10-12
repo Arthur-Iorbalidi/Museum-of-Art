@@ -1,7 +1,8 @@
 import FavoriteButton from '@components/ui/FavoriteButton/FavoriteButton';
 import Loader from '@components/ui/Loader/Loader';
 import images from '@constants/images';
-import artworksAPI, { IArtworkResponse } from '@services/ArtworksAPI';
+import { IArtworkResponse } from '@localTypes/ArtworksAPITypes';
+import artworksAPI from '@services/ArtworksAPI';
 import favouritesAPI from '@services/FavouritesAPI';
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';

@@ -1,4 +1,4 @@
-import { IGetParams } from '@services/ArtworksAPI';
+import { IGetParams } from '@localTypes/ArtworksAPITypes';
 
 const defaultSearchValues: IGetParams = {
   page: 1,

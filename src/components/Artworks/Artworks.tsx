@@ -1,6 +1,6 @@
 import Artwork from '@components/Artwork/Artwork';
 import Loader from '@components/ui/Loader/Loader';
-import { IArtwork } from '@services/ArtworksAPI';
+import { IArtwork } from '@localTypes/ArtworksAPITypes';
 import { memo } from 'react';
 
 import styles from './Artworks.module.scss';

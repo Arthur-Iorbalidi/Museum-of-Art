@@ -1,6 +1,6 @@
 import FavoriteArtwork from '@components/FavoriteArtwork/FavoriteArtwork';
 import Loader from '@components/ui/Loader/Loader';
-import { IArtwork } from '@services/ArtworksAPI';
+import { IArtwork } from '@localTypes/ArtworksAPITypes';
 
 import styles from './FavoritesArtworks.module.scss';
 

@@ -1,7 +1,7 @@
 import FavoriteButton from '@components/ui/FavoriteButton/FavoriteButton';
 import images from '@constants/images';
 import routes from '@constants/routes';
-import { IArtwork } from '@services/ArtworksAPI';
+import { IArtwork } from '@localTypes/ArtworksAPITypes';
 import { Link } from 'react-router-dom';
 
 import styles from './FavoriteArtwork.module.scss';

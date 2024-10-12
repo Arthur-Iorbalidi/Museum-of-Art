@@ -1,6 +1,7 @@
 import FavoritesArtworks from '@components/FavoritesArtworks/FavoritesArtworks';
 import images from '@constants/images';
-import artworksAPI, { IFavoritesArtworksResponse } from '@services/ArtworksAPI';
+import { IFavoritesArtworksResponse } from '@localTypes/ArtworksAPITypes';
+import artworksAPI from '@services/ArtworksAPI';
 import favouritesAPI from '@services/FavouritesAPI';
 import { useEffect, useState } from 'react';
 
