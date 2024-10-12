@@ -1,48 +1,11 @@
+import {
+  IArtworkResponse,
+  IArtworksResponse,
+  IError,
+  IFavoritesArtworksResponse,
+  IGetParams,
+} from '@localTypes/ArtworksAPITypes';
 import axios from 'axios';
-
-export interface IGetParams {
-  page: number;
-  limit: number;
-  searchQuery: string;
-  sort: string;
-}
-
-export interface IArtworksResponse {
-  pagination: IPagination;
-  data: IArtwork[];
-}
-
-export interface IFavoritesArtworksResponse {
-  data: IArtwork[];
-}
-
-export interface IArtworkResponse {
-  data: IArtwork;
-}
-
-export interface IPagination {
-  total: number;
-  limit: number;
-  offset: number;
-  total_pages: number;
-  current_page: number;
-}
-
-export interface IArtwork {
-  _score: number;
-  date_start: number;
-  artist_display: string;
-  date_display: string;
-  date_end: number;
-  artist_title: string;
-  id: number;
-  image_id: string;
-  title: string;
-  place_of_origin: string;
-  dimensions: string;
-  style_title: string;
-  credit_line: string;
-}
 
 class ArtworksAPI {
   private baseUrl = 'https://api.artic.edu/api/v1/artworks';
@@ -56,17 +19,23 @@ class ArtworksAPI {
     },
   });
 
-  async get(params: IGetParams): Promise<IArtworksResponse> {
-    if (params.searchQuery === '') {
-      const response = await this.getArtworks(params);
-      return response;
-    }
+  async getArtworks(params: IGetParams): Promise<IArtworksResponse> {
+    try {
+      if (params.searchQuery === '') {
+        const response = await this.getDefaultArtworks(params);
+        return response;
+      }
 
-    const response = await this.getArtworksByQuery(params);
-    return response;
+      const response = await this.getArtworksByQuery(params);
+      return response;
+    } catch (error) {
+      return {
+        error: error as IError,
+      };
+    }
   }
 
-  async getArtworks(params: IGetParams): Promise<IArtworksResponse> {
+  async getDefaultArtworks(params: IGetParams): Promise<IArtworksResponse> {
     const response = await this.api.get('', {
       params: {
         page: params.page,
@@ -93,13 +62,19 @@ class ArtworksAPI {
   }
 
   async getArtworkById(id: string): Promise<IArtworkResponse> {
-    const response = await this.api.get(`/${id}`, {
-      params: {
-        fields: this.fields,
-      },
-    });
+    try {
+      const response = await this.api.get(`/${id}`, {
+        params: {
+          fields: this.fields,
+        },
+      });
 
-    return response.data;
+      return response.data;
+    } catch (error) {
+      return {
+        error: error as IError,
+      };
+    }
   }
 
   async getArtworksByIds(ids: number[]): Promise<IFavoritesArtworksResponse> {

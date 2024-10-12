@@ -49,7 +49,7 @@ describe('FavouritesAPI', () => {
   test('should return parsed favorites from storage', () => {
     jest.spyOn(storageAPI, 'get').mockReturnValue(JSON.stringify([1, 2, 3]));
 
-    const result = favouritesAPI.getFavorites();
+    const result = favouritesAPI.getFavoritesIds();
 
     expect(result).toEqual([1, 2, 3]);
   });
