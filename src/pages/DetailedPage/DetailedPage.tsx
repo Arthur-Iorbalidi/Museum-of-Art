@@ -27,7 +27,6 @@ const DetailedPage = () => {
       const data = await artworksAPI.getArtworkById(id!);
       setArtwork(data);
       setIsLoading(false);
-      console.log(data);
     })();
   }, []);
 
